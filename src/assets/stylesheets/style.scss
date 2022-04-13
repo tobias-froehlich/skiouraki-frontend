@@ -1,0 +1,31 @@
+$myFancyColor: red;
+
+button.pressed {
+  border: black 5px solid;
+}
+
+.router-link-log-in {
+  float: right;
+}
+
+.drop-down-locale {
+  float: right;
+}
+
+.drop-down-locale div.div-drop-down {
+  float: right;
+  right: 0;
+}
+
+.drop-down-user {
+  float: right;
+}
+
+.drop-down-user div.div-drop-down {
+  float: right;
+  right: 0;
+}
+
+input.my-input {
+  background: $myFancyColor;
+}
