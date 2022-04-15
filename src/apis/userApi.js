@@ -1,10 +1,13 @@
 import superagent from 'superagent'
 
-let myId = null //'fa119019-f506-4117-81fb-908cc20a0473'
-let authHeader = null //"Basic " + btoa("fa119019-f506-4117-81fb-908cc20a0473:johns-geheimes-password")
+let myId = null
+let authHeader = null
 let userName = null
 
 const url = process.env.VUE_APP_BACKEND_URL
+
+const maximalNameLength = 16
+const validCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZäöußÄÖÜẞΑαΒβΓγΔδΕεΖζΗηΘθΙιΚκΛλΜμΝνΞξΟοΠπΡρΣσςΤτΥυΦφΧχΨψΩω";
 
 function signUp(name, password) {
   const user = {
@@ -13,15 +16,13 @@ function signUp(name, password) {
     name: name,
     password: password,
   }
-  superagent
+  return superagent
     .post(url + 'user/add', user)
-    .then(result => alert(JSON.stringify(result)));
 }
 
 function getAll() {
   superagent
     .get(url + 'user/get-all')
-//    .get('http://localhost:8090/user/get-all')
     .then(result => alert(JSON.stringify(result)))
 }
 
@@ -67,4 +68,6 @@ export default {
   logIn,
   logOut,
   userName,
+  maximalNameLength,
+  validCharacters,
 }

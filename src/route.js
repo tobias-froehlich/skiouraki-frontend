@@ -3,7 +3,6 @@ import LoginComponent from './components/LoginComponent.vue'
 import SignupComponent from './components/SignupComponent.vue'
 import { createRouter, createWebHashHistory } from 'vue-router'
 
-
 const routes = [
   {path: '/', component: HomeComponent},
   {path: '/login', component: LoginComponent},

@@ -2,9 +2,19 @@
 
 $myFancyColor: #307030;
 
+$errorBorderColor: red;
 
 // Error Modal
 
 .error-modal-content {
    width: 75%;
+}
+
+// Invalid input fields
+input.invalid {
+  border: $errorBorderColor 2px solid;
+}
+
+input.invalid:focus {
+  border: $errorBorderColor 2px solid;
 }
