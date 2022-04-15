@@ -1,7 +1,7 @@
 <template>
   <header-bar :userName="userName" @updateUserName="updateUserName"></header-bar>
   <p>
-    <router-link to="/">Home</router-link>
+
   </p>
   <router-view @updateUserName="updateUserName"></router-view>
 </template>

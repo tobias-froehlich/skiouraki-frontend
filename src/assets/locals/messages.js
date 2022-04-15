@@ -7,6 +7,7 @@ export default {
     doNothing: 'do nothing',
     'en-US': 'EN',
     'de-DE': 'DE',
+    ok: 'OK',
   },
   'de-DE': {
     helloWorld: 'Hallo Welt!',
@@ -16,5 +17,6 @@ export default {
     doNothing: 'Mach nichts',
     'en-US': 'EN',
     'de-DE': 'DE',
+    ok: 'OK'
   }
 }

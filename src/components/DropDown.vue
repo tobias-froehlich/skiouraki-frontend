@@ -1,13 +1,13 @@
 <template>
     <div class="drop-down"
     >
-        <button ref="theButton" class="drop-down-button"
+        <button ref="theButton" class="btn btn-primary drop-down-button"
                 @click.stop="() => expanded = !expanded"
                 @blur="looseFocus"
         >
             <slot/>
-            <div class="div-drop-down" v-if="expanded">
-                <button :id="`button-${idx}`" class="button-drop-down" v-for="(option, idx) of options" @click.stop="() => doActionOfOption(option)" :key="idx">
+            <div v-if="expanded">
+                <button :id="`button-${idx}`" class="btn btn-primary" v-for="(option, idx) of options" @click.stop="() => doActionOfOption(option)" :key="idx">
                     {{ $t(option.label) }}
                 </button>
             </div>
@@ -45,25 +45,21 @@ export default {
 </script>
 <style lang="scss">
 
-div.drop-down {
-  display: inline;
+button.drop-down-button {
+  position: relative;
 }
 
-button.drop-down-button > div.div-drop-down {
+button.drop-down-button > div {
   display: none;
+  position: absolute;
+  right: 0px;
 }
 
-button.drop-down-button:hover > div.div-drop-down {
+button.drop-down-button:hover > div {
   display: block;
 }
 
-div.div-drop-down {
-  position: absolute;
-
-}
-
-button.button-drop-down {
-  background-color: yellow;
+button.drop-down-button > div > button {
   display: block;
   width: 100%;
   text-align: left;
