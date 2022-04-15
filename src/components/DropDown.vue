@@ -2,9 +2,11 @@
     <div class="drop-down"
     >
         <button ref="theButton" class="drop-down-button"
+                @click.stop="() => expanded = !expanded"
+                @blur="looseFocus"
         >
             <slot/>
-            <div class="div-drop-down">
+            <div class="div-drop-down" v-if="expanded">
                 <button :id="`button-${idx}`" class="button-drop-down" v-for="(option, idx) of options" @click.stop="() => doActionOfOption(option)" :key="idx">
                     {{ $t(option.label) }}
                 </button>
@@ -28,8 +30,6 @@ export default {
   data() {
     return {
       expanded: false,
-      focussed1: false,
-      focussed2: false,
     }
   },
   methods: {
@@ -37,13 +37,13 @@ export default {
       this.expanded = false
       option.action()
     },
-    onLooseFocus() {
-        this.$nextTick(() => this.expanded = false)
-    },
+    looseFocus() {
+      setTimeout(() => this.expanded = false, 200)
+    }
   },
 }
 </script>
-<style lang="css">
+<style lang="scss">
 
 div.drop-down {
   display: inline;
