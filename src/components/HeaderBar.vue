@@ -1,26 +1,23 @@
 <template>
     <div>
-        <div class="row">
-            <div class="col">
-                <router-link class="btn btn-primary" to="/">Home</router-link>
-
+        <div class="row m-0 p-0">
+            <div class="col p-0">
+                <router-link class="btn btn-primary d-inline float-left" to="/">Home</router-link>
             </div>
-            <div class="col">
+            <div class="col p-0">
                 <drop-down
-                        class="drop-down-locale"
+                        class="d-inline float-end"
                         :options="dropDownLocaleOptions"
                 >
                     {{ $t($i18n.locale) }}
                 </drop-down>
-            </div>
-            <div class="col">
                 <drop-down
-                        class="drop-down-user"
+                        class="d-inline float-end"
                         v-if="userName"
                         :options="dropDownUserOptions">
                     {{ userName }}
                 </drop-down>
-                <router-link class="btn btn-primary router-link-log-in" v-else to="/login">{{ $t('logIn') }}</router-link>
+                <router-link class="btn btn-primary d-inline float-end" v-else to="/login">{{ $t('logIn') }}</router-link>
 
             </div>
         </div>

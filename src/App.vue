@@ -1,9 +1,9 @@
 <template>
-  <header-bar :userName="userName" @updateUserName="updateUserName"></header-bar>
-  <p>
+  <div class="container m-0 p-0">
+    <header-bar :userName="userName" @updateUserName="updateUserName"></header-bar>
+    <router-view @updateUserName="updateUserName"></router-view>
+  </div>
 
-  </p>
-  <router-view @updateUserName="updateUserName"></router-view>
 </template>
 
 <script>
