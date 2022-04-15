@@ -1,7 +1,7 @@
 <template>
     <div>
         <input class="my-input" type="text" v-model="name"/>
-        <input type="text" v-model="password"/>
+        <input type="password" v-model="password"/>
         <button @click.stop="logIn">{{ $t('logIn') }}</button>
     </div>
 </template>

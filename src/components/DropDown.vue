@@ -1,11 +1,16 @@
 <template>
-    <div class="drop-down">
-        <button :class="{'drop-down-button': true, 'pressed': expanded}" @click.stop="() => expanded = !expanded"><slot/></button>
-        <div class="div-drop-down" v-if="expanded">
-            <button class="button-drop-down" v-for="(option, idx) of options" @click.stop="() => doActionOfOption(option)" :key="idx">
-                {{ option.label }}
-            </button>
-        </div>
+    <div class="drop-down"
+    >
+        <button ref="theButton" class="drop-down-button"
+        >
+            <slot/>
+            <div class="div-drop-down">
+                <button :id="`button-${idx}`" class="button-drop-down" v-for="(option, idx) of options" @click.stop="() => doActionOfOption(option)" :key="idx">
+                    {{ $t(option.label) }}
+                </button>
+            </div>
+        </button>
+
     </div>
 </template>
 
@@ -23,12 +28,17 @@ export default {
   data() {
     return {
       expanded: false,
+      focussed1: false,
+      focussed2: false,
     }
   },
   methods: {
     doActionOfOption(option) {
       this.expanded = false
       option.action()
+    },
+    onLooseFocus() {
+        this.$nextTick(() => this.expanded = false)
     },
   },
 }
@@ -37,6 +47,14 @@ export default {
 
 div.drop-down {
   display: inline;
+}
+
+button.drop-down-button > div.div-drop-down {
+  display: none;
+}
+
+button.drop-down-button:hover > div.div-drop-down {
+  display: block;
 }
 
 div.div-drop-down {
