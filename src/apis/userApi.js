@@ -1,8 +1,11 @@
 import superagent from 'superagent'
 
 let myId = null
-let authHeader = null
+let myVersion = null
 let userName = null
+let myPassword = null
+
+let authHeader = null
 
 const url = process.env.VUE_APP_BACKEND_URL
 
@@ -39,6 +42,7 @@ function getUserSelf() {
 }
 
 function logIn(name, password) {
+  myPassword = password
   return superagent
     .get(url + 'user/get-by-name/' + name)
     .then(result => {
@@ -50,15 +54,57 @@ function logIn(name, password) {
     })
     .then(result => {
       userName = result.body.name
+      myVersion = result.body.version
+      return userName
+    })
+}
+
+function changeName(newName) {
+  const user = {
+    id: myId,
+    version: myVersion,
+    name: newName,
+    password: myPassword,
+  }
+  return superagent
+    .post(url + 'user/update/' + myId, user)
+    .set('Authorization', authHeader)
+    .then(user => {
+      myId = user.id
+      myVersion = user.version
+      userName = user.name
+      return userName
+    })
+}
+
+function changePassword(newPassword) {
+  const user = {
+    id: myId,
+    version: myVersion,
+    name: userName,
+    password: newPassword,
+  }
+  return superagent
+    .post(url + 'user/update/' + myId, user)
+    .set('Authorization', authHeader)
+    .then(user => {
+      myId = user.id
+      myVersion = user.version
+      userName = user.name
+      myPassword = newPassword
       return userName
     })
 }
 
 function logOut() {
   myId = null
-  authHeader = null
+  myVersion = null
   userName = null
+  myPassword = null
+  authHeader = null
 }
+
+
 
 export default {
   signUp,
@@ -66,6 +112,8 @@ export default {
   getUser,
   getUserSelf,
   logIn,
+  changeName,
+  changePassword,
   logOut,
   userName,
   maximalNameLength,

@@ -2,7 +2,7 @@
     <div>
         <div class="row m-0 p-0">
             <div class="col p-0">
-                <router-link class="btn btn-primary d-inline float-left" to="/">Home</router-link>
+                <router-link class="btn btn-primary d-inline float-left" to="/">{{ $t('skiouraki') }}</router-link>
             </div>
             <div class="col p-0">
                 <drop-down
@@ -18,7 +18,6 @@
                     {{ userName }}
                 </drop-down>
                 <router-link class="btn btn-primary d-inline float-end" v-else to="/login">{{ $t('logIn') }}</router-link>
-
             </div>
         </div>
     </div>
@@ -51,7 +50,8 @@ export default {
       ],
       dropDownUserOptions: [
         {label: 'logOut', action: this.logOut},
-        {label: 'doNothing', action: () => null},
+        {label: 'changeUserName', action: this.changeUserName},
+        {label: 'changePassword', action: this.changePassword},
       ],
       visible: false,
     }
@@ -60,6 +60,12 @@ export default {
     logOut() {
       userApi.logOut()
       this.$emit('updateUserName', null)
+    },
+    changeUserName() {
+      this.$router.push({path: '/change-user-name'})
+    },
+    changePassword() {
+      this.$router.push({path: '/change-password'})
     },
     click1() {
       this.visible = true

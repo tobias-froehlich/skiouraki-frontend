@@ -1,5 +1,6 @@
 export default {
   'en-US': {
+    skiouraki: "Σκιουράκι",
     helloWorld: 'Hello World!',
     signUp: 'Sign Up',
     logIn: 'Log In',
@@ -11,8 +12,11 @@ export default {
     'en-US': 'EN',
     'de-DE': 'DE',
     ok: 'OK',
+    changeUserName: 'Change user name',
+    changePassword: 'Change password',
   },
   'de-DE': {
+    skiouraki: "Σκιουράκι",
     helloWorld: 'Hallo Welt!',
     signUp: 'Anmelden',
     logIn: 'Einloggen',
@@ -23,6 +27,8 @@ export default {
     doNothing: 'Mach nichts',
     'en-US': 'EN',
     'de-DE': 'DE',
-    ok: 'OK'
+    ok: 'OK',
+    changeUserName: 'Benutzernamen ändern',
+    changePassword: 'Passwort ändern',
   }
 }
