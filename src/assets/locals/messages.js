@@ -7,6 +7,7 @@ export default {
     name: 'Name',
     password: 'Password',
     repeatPassword: 'Repeat password',
+
     logOut: 'Log Out',
     doNothing: 'do nothing',
     'en-US': 'EN',
@@ -20,6 +21,7 @@ export default {
       unexpectedError: 'Unexpected Error.',
       theUserNameAlreadyExists: 'The user name already exists.',
       userNotFound: 'User not found.',
+      wrongPassword: 'Wrong password.',
     },
     info: {
       accountCreatedLogIn: 'Your account has been created. Log in now.',
@@ -36,6 +38,7 @@ export default {
     name: 'Name',
     password: 'Passwort',
     repeatPassword: 'Passwort wiederholen',
+
     logOut: 'Ausloggen',
     doNothing: 'Mach nichts',
     'en-US': 'EN',
@@ -49,6 +52,7 @@ export default {
       unexpectedError: 'Unerwarteter Fehler.',
       theUserNameAlreadyExists: 'Der Benutzername existiert schon.',
       userNotFound: 'Benutzername nicht gefunden.',
+      wrongPassword: 'Falsches Passwort.',
     },
     info: {
       accountCreatedLogIn: 'Dein Account wurde erstellt. Logg dich jetzt ein.',

@@ -50,8 +50,8 @@ function logIn(name, password) {
   return superagent
     .get(url + 'user/get-by-name/' + name)
     .then(result => {
-        myId = result.text
-        authHeader = "Basic " + btoa(myId + ":" + password)
+      myId = result.text
+      authHeader = "Basic " + btoa(myId + ":" + password)
       return superagent
         .get(url + 'user/get/' + result.text)
         .set('Authorization', authHeader)

@@ -4,6 +4,74 @@ $myFancyColor: #307030;
 
 $errorBorderColor: red;
 
+$primaryColor: #4045c7;
+$primaryColorLight: #8386c7;
+
+$primaryColorDisabledBack: #717171;
+$primaryColorDisabledFront: #b6b6b6;
+
+$secondaryColor: #2c308a;
+$secondaryColorLight: #454788;
+
+// buttons
+
+.btn {
+  border-radius: 0px;
+  border-width: 2px;
+  margin: 2px;
+}
+
+.btn-primary, .btn-primary:hover {
+  background-color: $primaryColor;
+  border-color: $primaryColor;
+}
+
+.btn-primary:focus {
+  outline: none;
+  box-shadow: 0px 0px 5px $primaryColor;
+  border-color: $primaryColor;
+}
+
+.btn-primary:active {
+  background-color: $primaryColor;
+  outline: none;
+  box-shadow: 0px 0px 5px $primaryColor;
+  border-color: $secondaryColor;
+}
+
+.btn-primary:disabled {
+  background-color: $primaryColorDisabledBack;
+  color: $primaryColorDisabledFront;
+  border: none;
+  border-color: $secondaryColor;
+}
+
+.btn-secondary, .btn-secondary:hover {
+  background-color: $secondaryColor;
+  border-color: $secondaryColorLight;
+}
+
+.btn-secondary:focus {
+  background-color: $secondaryColor;
+  outline: none;
+  box-shadow: 0px 0px 5px $secondaryColorLight;
+  border-color: $secondaryColorLight;
+}
+
+.btn-secondary:active {
+  background-color: $secondaryColorLight;
+  outline: none;
+  box-shadow: 0px 0px 5px $secondaryColorLight;
+  border-color: $secondaryColorLight;
+}
+
+
+// Inputs
+
+.form-control {
+  border-radius: 0px;
+}
+
 // Error Modal
 
 .error-modal-content {

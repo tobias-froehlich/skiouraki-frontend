@@ -53,6 +53,7 @@ button.drop-down-button > div {
   display: none;
   position: absolute;
   right: 0px;
+  z-index: 1;
 }
 
 button.drop-down-button:hover > div {
