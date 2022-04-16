@@ -54,6 +54,7 @@ button.drop-down-button > div {
   position: absolute;
   right: 0px;
   z-index: 1;
+  white-space: nowrap;
 }
 
 button.drop-down-button:hover > div {

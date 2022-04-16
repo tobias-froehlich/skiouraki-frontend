@@ -5,7 +5,7 @@ $myFancyColor: #307030;
 $errorBorderColor: red;
 
 $primaryColor: #4045c7;
-$primaryColorLight: #8386c7;
+$primaryColorLight: #6f72c4;
 
 $primaryColorDisabledBack: #717171;
 $primaryColorDisabledFront: #b6b6b6;
@@ -17,52 +17,53 @@ $secondaryColorLight: #454788;
 
 .btn {
   border-radius: 0px;
-  border-width: 2px;
+  border-width: 1px;
   margin: 2px;
 }
 
 .btn-primary, .btn-primary:hover {
   background-color: $primaryColor;
-  border-color: $primaryColor;
+  border-color: black;//$primaryColor;
 }
 
 .btn-primary:focus {
-  outline: none;
-  box-shadow: 0px 0px 5px $primaryColor;
-  border-color: $primaryColor;
-}
-
-.btn-primary:active {
   background-color: $primaryColor;
   outline: none;
   box-shadow: 0px 0px 5px $primaryColor;
-  border-color: $secondaryColor;
+  border-color: black;//$primaryColor;
+}
+
+.btn-primary:active {
+  background-color: $primaryColorLight;
+  outline: none;
+  box-shadow: 0px 0px 5px $primaryColor;
+  border-color: black;//$primaryColorLight;
 }
 
 .btn-primary:disabled {
   background-color: $primaryColorDisabledBack;
   color: $primaryColorDisabledFront;
   border: none;
-  border-color: $secondaryColor;
+  border-color: black;//$secondaryColor;
 }
 
 .btn-secondary, .btn-secondary:hover {
   background-color: $secondaryColor;
-  border-color: $secondaryColorLight;
+  border-color: black;//$secondaryColorLight;
 }
 
 .btn-secondary:focus {
   background-color: $secondaryColor;
   outline: none;
   box-shadow: 0px 0px 5px $secondaryColorLight;
-  border-color: $secondaryColorLight;
+  border-color: black;//$secondaryColorLight;
 }
 
 .btn-secondary:active {
   background-color: $secondaryColorLight;
   outline: none;
   box-shadow: 0px 0px 5px $secondaryColorLight;
-  border-color: $secondaryColorLight;
+  border-color: black;//$secondaryColorLight;
 }
 
 
@@ -70,6 +71,11 @@ $secondaryColorLight: #454788;
 
 .form-control {
   border-radius: 0px;
+}
+
+.form-control:focus {
+  outline: none;
+  box-shadow: 0px 0px 5px $secondaryColorLight;
 }
 
 // Error Modal

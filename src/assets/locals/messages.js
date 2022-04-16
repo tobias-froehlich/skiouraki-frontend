@@ -2,6 +2,7 @@ export default {
   'en-US': {
     skiouraki: "Σκιουράκι",
     helloWorld: 'Hello World!',
+    hello: 'Hello',
     signUp: 'Sign Up',
     logIn: 'Log In',
     name: 'Name',
@@ -33,6 +34,7 @@ export default {
   'de-DE': {
     skiouraki: "Σκιουράκι",
     helloWorld: 'Hallo Welt!',
+    hello: 'Hallo',
     signUp: 'Anmelden',
     logIn: 'Einloggen',
     name: 'Name',

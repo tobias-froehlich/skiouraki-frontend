@@ -59,7 +59,7 @@ export default {
           this.$emit('updateUserName', userName)
           this.name = null
           this.password = null
-          this.$router.push({path: '/'})
+          this.$router.push({path: '/overview'})
         })
         .catch(error => {
 

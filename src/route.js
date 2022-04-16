@@ -4,6 +4,7 @@ import SignupComponent from './components/SignupComponent.vue'
 import ChangeUserName from './components/ChangeUserName.vue'
 import ChangePassword from './components/ChangePassword.vue'
 import DeleteUser from './components/DeleteUser.vue'
+import OverviewComponent from './components/OverviewComponent.vue'
 import { createRouter, createWebHashHistory } from 'vue-router'
 
 const routes = [
@@ -13,6 +14,7 @@ const routes = [
   {path: '/change-user-name', component: ChangeUserName},
   {path: '/change-password', component: ChangePassword},
   {path: '/delete-user', component: DeleteUser},
+  {path: '/overview', component: OverviewComponent},
 ]
 
 const router = createRouter({

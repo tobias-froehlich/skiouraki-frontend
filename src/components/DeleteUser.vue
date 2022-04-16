@@ -7,7 +7,6 @@
         <div class="form-group">
             <button class="btn btn-primary" :disabled="v$.$invalid" @click.stop="deleteUser">{{ $t('deleteAccount') }}</button>
         </div>
-        <p>{{ correctName }}</p>
     </div>
 </template>
 

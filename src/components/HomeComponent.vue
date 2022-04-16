@@ -12,7 +12,6 @@ export default {
   props: {},
   data() {
     return {
-      user: null,
     }
   },
   methods: {
