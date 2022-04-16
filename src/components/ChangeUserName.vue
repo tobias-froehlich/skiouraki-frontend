@@ -29,8 +29,8 @@ export default {
   },
   validations: {
     name: {
-      notTooLong(value) {
-        return value && value.length <= userApi.maximalNameLength
+      allowedLength(value) {
+        return value && value.length <= userApi.maximalNameLength && value.length >= userApi.minimalNameLength
       },
       charactersAreValid(value) {
         for (let c of value) {

@@ -6,7 +6,7 @@
         </div>
         <div class="form-group">
             <label for="password">{{ $t('password') }}</label>
-            <input id="password" class="form-control" type="password" v-model="password"/>
+            <input id="password" class="form-control" :class="{invalid: v$.password.$invalid}" type="password" v-model="password"/>
         </div>
         <div class="form-group">
             <button class="btn btn-primary" :disabled="v$.$invalid" @click.stop="logIn">{{ $t('logIn') }}</button>
@@ -33,9 +33,14 @@ export default {
     }
   },
   validations: {
+      password: {
+      allowedLength(value) {
+        return value && value.length <= userApi.maximalPasswordLength && value.length >= userApi.minimalPasswordLength
+      }
+    },
     name: {
-      notTooLong(value) {
-        return value && value.length <= userApi.maximalNameLength
+      allowedLength(value) {
+        return value && value.length <= userApi.maximalNameLength && value.length >= userApi.minimalNameLength
       },
       charactersAreValid(value) {
         for (let c of value) {

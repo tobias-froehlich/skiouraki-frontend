@@ -6,7 +6,7 @@
         </div>
         <div class="form-group">
             <label for="password">{{ $t('password') }}</label>
-            <input id="password" class="form-control" :class="{invalid: v$.equalPasswords.$invalid}" type="password" v-model="password"/>
+            <input id="password" class="form-control" :class="{invalid: v$.password.$invalid}" type="password" v-model="password"/>
         </div>
         <div class="form-group">
             <label for="repeatPassword">{{ $t('repeatPassword') }}</label>
@@ -15,20 +15,11 @@
         <div class="form-group">
             <button class="btn btn-primary" :disabled="v$.$invalid" @click.stop="signUp">{{ $t('signUp') }}</button>
         </div>
-        <button @click.stop="getAll"> get all</button>
-        {{ v$.name.$invalid }}
-        <message-modal
-                :error="error"
-                :info="info"
-                @resetError="() => error = null"
-                @resetInfo="() => info = null"
-        ></message-modal>
     </div>
 </template>
 
 <script>
 import userApi from '../apis/userApi.js'
-import MessageModal from './MessageModal.vue'
 import useVuelidate from '@vuelidate/core'
 
 export default {
@@ -38,17 +29,20 @@ export default {
       v$: useVuelidate(),
     }
   },
-  components: {
-    MessageModal,
-  },
+  components: {},
   props: {},
   validations: {
+    password: {
+      allowedLength(value) {
+        return value && value.length <= userApi.maximalPasswordLength && value.length >= userApi.minimalPasswordLength
+      }
+    },
     equalPasswords(value) {
       return value.password === value.repeatedPassword
     },
     name: {
-      notTooLong(value) {
-        return value && value.length <= userApi.maximalNameLength
+      allowedLength(value) {
+        return value && value.length <= userApi.maximalNameLength && value.length >= userApi.minimalNameLength
       },
       charactersAreValid(value) {
         for (let c of value) {

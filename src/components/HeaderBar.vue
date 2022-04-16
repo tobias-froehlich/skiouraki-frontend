@@ -2,7 +2,7 @@
     <div>
         <div class="row m-0 p-0">
             <div class="col p-0">
-                <router-link class="btn btn-primary d-inline float-left" to="/">{{ $t('skiouraki') }}</router-link>
+                <router-link class="btn btn-secondary d-inline float-left" to="/">{{ $t('skiouraki') }}</router-link>
             </div>
             <div class="col p-0">
                 <drop-down
@@ -17,7 +17,7 @@
                         :options="dropDownUserOptions">
                     {{ userName }}
                 </drop-down>
-                <router-link class="btn btn-primary d-inline float-end" v-else to="/login">{{ $t('logIn') }}</router-link>
+                <router-link class="btn btn-secondary d-inline float-end" v-else to="/login">{{ $t('logIn') }}</router-link>
             </div>
         </div>
     </div>

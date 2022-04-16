@@ -9,8 +9,12 @@ let authHeader = null
 
 const url = process.env.VUE_APP_BACKEND_URL
 
+const minimalNameLength = 3
 const maximalNameLength = 16
 const validCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZäöußÄÖÜẞΑαΒβΓγΔδΕεΖζΗηΘθΙιΚκΛλΜμΝνΞξΟοΠπΡρΣσςΤτΥυΦφΧχΨψΩω";
+
+const minimalPasswordLength = 4
+const maximalPasswordLength = 32
 
 function signUp(name, password) {
   const user = {
@@ -129,6 +133,9 @@ export default {
   logOut,
   deleteUser,
   getUserName,
+  minimalNameLength,
   maximalNameLength,
+  minimalPasswordLength,
+  maximalPasswordLength,
   validCharacters,
 }

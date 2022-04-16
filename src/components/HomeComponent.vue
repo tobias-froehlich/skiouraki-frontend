@@ -1,28 +1,18 @@
 <template>
   <div>
-    {{ $t('helloWorld') }}
-    <router-link to="/signup">{{ $t('signUp') }}</router-link>
-    <button @click="() => error = 'something went wrong'">open modal</button>
-    <Message-modal
-      :error="error"
-      @resetError="() => error = null"
-    ></Message-modal>
+    <router-link class="btn btn-secondary" to="/signup">{{ $t('signUp') }}</router-link>
   </div>
 </template>
 
 <script>
-import MessageModal from './MessageModal.vue'
 
 export default {
   name: 'HomeComponent',
-  components: {
-    MessageModal,
-  },
+  components: {},
   props: {},
   data() {
     return {
       user: null,
-      error: null,
     }
   },
   methods: {

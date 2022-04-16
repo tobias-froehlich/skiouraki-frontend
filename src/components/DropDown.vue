@@ -1,13 +1,13 @@
 <template>
     <div class="drop-down"
     >
-        <button ref="theButton" class="btn btn-primary drop-down-button"
+        <button ref="theButton" class="btn btn-secondary drop-down-button"
                 @click.stop="() => expanded = !expanded"
                 @blur="looseFocus"
         >
             <slot/>
             <div v-if="expanded">
-                <button :id="`button-${idx}`" class="btn btn-primary" v-for="(option, idx) of options" @click.stop="() => doActionOfOption(option)" :key="idx">
+                <button :id="`button-${idx}`" class="btn btn-secondary" v-for="(option, idx) of options" @click.stop="() => doActionOfOption(option)" :key="idx">
                     {{ $t(option.label) }}
                 </button>
             </div>

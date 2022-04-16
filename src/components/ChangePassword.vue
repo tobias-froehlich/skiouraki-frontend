@@ -2,7 +2,7 @@
     <div class="row">
         <div class="form-group">
             <label for="password">{{ $t('password') }}</label>
-            <input id="password" class="form-control" :class="{invalid: v$.equalPasswords.$invalid}" type="password" v-model="password"/>
+            <input id="password" class="form-control" :class="{invalid: v$.password.$invalid}" type="password" v-model="password"/>
         </div>
         <div class="form-group">
             <label for="repeatPassword">{{ $t('repeatPassword') }}</label>
@@ -29,9 +29,16 @@ export default {
   data() {
     return {
       name: null,
+      password: null,
+      repeatedPassword: null,
     }
   },
   validations: {
+    password: {
+      allowedLength(value) {
+        return value && value.length <= userApi.maximalPasswordLength && value.length >= userApi.minimalPasswordLength
+      }
+    },
     equalPasswords(value) {
       return value.password === value.repeatedPassword
     },
