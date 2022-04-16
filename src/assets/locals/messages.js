@@ -14,6 +14,8 @@ export default {
     ok: 'OK',
     changeUserName: 'Change user name',
     changePassword: 'Change password',
+    deleteAccount: 'Delete account',
+    confirmUserName: 'Confirm user name',
     error: {
       unexpectedError: 'Unexpected Error.',
       theUserNameAlreadyExists: 'The user name already exists.',
@@ -23,6 +25,7 @@ export default {
       accountCreatedLogIn: 'Your account has been created. Log in now.',
       userNameChangedLogIn: 'Your user name was changed. Log in now with the new user name.',
       passwordChangedLogIn: 'Your password was changed. Log in now with the new password.',
+      userDeleted: 'Your user account has been deleted.',
     },
   },
   'de-DE': {
@@ -40,6 +43,8 @@ export default {
     ok: 'OK',
     changeUserName: 'Benutzernamen ändern',
     changePassword: 'Passwort ändern',
+    deleteAccount: 'Account löschen',
+    confirmUserName: 'Benutzernamen bestätigen',
     error: {
       unexpectedError: 'Unerwarteter Fehler.',
       theUserNameAlreadyExists: 'Der Benutzername existiert schon.',
@@ -49,6 +54,7 @@ export default {
       accountCreatedLogIn: 'Dein Account wurde erstellt. Logg dich jetzt ein.',
       userNameChangedLogIn: 'Dein Benutzername wurde geändert. Logg dich jetzt mit deinem neuen Benutzernamen ein.',
       passwordChangedLogIn: 'Dein Passwort wurde geändert. Logg dich jetzt mit deinem neuen Passwort ein.',
+      userDeleted: 'Dein Account wurde gelöscht.',
     },
   },
 }

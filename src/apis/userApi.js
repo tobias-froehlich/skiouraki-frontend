@@ -104,6 +104,18 @@ function logOut() {
   authHeader = null
 }
 
+function deleteUser() {
+  return superagent
+    .delete(url + 'user/delete/' + myId)
+    .set('Authorization', authHeader)
+    .then(() => {
+      logOut()
+    })
+}
+
+function getUserName() {
+  return userName
+}
 
 
 export default {
@@ -115,7 +127,8 @@ export default {
   changeName,
   changePassword,
   logOut,
-  userName,
+  deleteUser,
+  getUserName,
   maximalNameLength,
   validCharacters,
 }

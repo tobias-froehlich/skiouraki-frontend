@@ -50,6 +50,7 @@ export default {
         {label: 'logOut', action: this.logOut},
         {label: 'changeUserName', action: this.changeUserName},
         {label: 'changePassword', action: this.changePassword},
+        {label: 'deleteAccount', action: this.deleteUser},
       ],
       visible: false,
     }
@@ -66,6 +67,9 @@ export default {
     changePassword() {
       this.$router.push({path: '/change-password'})
     },
+    deleteUser() {
+      this.$router.push({path: '/delete-user'})
+    }
   }
 }
 </script>
