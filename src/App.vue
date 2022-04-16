@@ -1,22 +1,35 @@
 <template>
   <div class="container m-0 p-0">
     <header-bar :userName="userName" @updateUserName="updateUserName"></header-bar>
-    <router-view @updateUserName="updateUserName"></router-view>
+    <router-view
+            @updateUserName="updateUserName"
+            @setError="newError => error = newError"
+            @setInfo="newInfo => info = newInfo"
+    ></router-view>
   </div>
-
+  <message-modal
+          :error="error"
+          :info="info"
+          @resetError="() => error = null"
+          @resetInfo="() => info = null"
+  ></message-modal>
 </template>
 
 <script>
 import HeaderBar from './components/HeaderBar.vue'
+import MessageModal from './components/MessageModal.vue'
 
 export default {
   name: 'App',
   components: {
     HeaderBar,
+    MessageModal,
   },
   data() {
     return {
       userName: null,
+      error: null,
+      info: null,
     }
   },
   methods: {

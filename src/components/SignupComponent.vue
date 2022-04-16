@@ -17,16 +17,18 @@
         </div>
         <button @click.stop="getAll"> get all</button>
         {{ v$.name.$invalid }}
-        <error-modal
+        <message-modal
                 :error="error"
+                :info="info"
                 @resetError="() => error = null"
-        ></error-modal>
+                @resetInfo="() => info = null"
+        ></message-modal>
     </div>
 </template>
 
 <script>
 import userApi from '../apis/userApi.js'
-import ErrorModal from './ErrorModal.vue'
+import MessageModal from './MessageModal.vue'
 import useVuelidate from '@vuelidate/core'
 
 export default {
@@ -37,7 +39,7 @@ export default {
     }
   },
   components: {
-    ErrorModal,
+    MessageModal,
   },
   props: {},
   validations: {
@@ -65,6 +67,7 @@ export default {
       password: null,
       repeatedPassword: null,
       error: null,
+      info: null,
     }
   },
   methods: {
@@ -74,10 +77,15 @@ export default {
         this.name = null
         this.password = null
         this.repeatedPassword = null
+        this.$emit('setInfo', 'info.accountCreatedLogIn')
+        this.$router.push({path: '/login'})
       })
       .catch(error => {
-        alert(JSON.stringify(error))
-        this.error = error.rawResponse
+        if (error.rawResponse === 'The user name already exists.') {
+          this.$emit('setError', 'error.theUserNameAlreadyExists')
+        } else {
+          this.$emit('setError','error.unexpectedError')
+        }
       })
     },
     getAll() {

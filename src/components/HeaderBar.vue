@@ -27,8 +27,6 @@
 import userApi from '../apis/userApi.js'
 import DropDown from './DropDown.vue'
 
-
-
 export default {
   name: 'HeaderBar',
   components: {
@@ -60,18 +58,13 @@ export default {
     logOut() {
       userApi.logOut()
       this.$emit('updateUserName', null)
+      this.$router.push({path: '/login'})
     },
     changeUserName() {
       this.$router.push({path: '/change-user-name'})
     },
     changePassword() {
       this.$router.push({path: '/change-password'})
-    },
-    click1() {
-      this.visible = true
-    },
-    click2() {
-      alert('hello')
     },
   }
 }

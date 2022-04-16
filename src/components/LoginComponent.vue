@@ -11,16 +11,11 @@
         <div class="form-group">
             <button class="btn btn-primary" :disabled="v$.$invalid" @click.stop="logIn">{{ $t('logIn') }}</button>
         </div>
-        <error-modal
-                :error="error"
-                @resetError="() => error = null"
-        ></error-modal>
     </div>
 </template>
 
 <script>
 import userApi from '../apis/userApi.js'
-import ErrorModal from './ErrorModal.vue'
 import useVuelidate from '@vuelidate/core'
 
 export default {
@@ -30,14 +25,11 @@ export default {
       v$: useVuelidate(),
     }
   },
-  components: {
-    ErrorModal,
-  },
+  components: {},
   data() {
     return {
       name: null,
       password: null,
-      error: null,
     }
   },
   validations: {
@@ -59,20 +51,19 @@ export default {
     logIn() {
       userApi.logIn(this.name, this.password)
         .then(userName => {
-          this.$emit('updateUserName', userName)}
-        )
-        .then(() => {
-            this.name = null
-            this.password = null
-          }
-        )
-        .then(() => {
-            this.$router.push('/')
-          }
-        )
-        .catch(error => {
-          this.error = error.response.text
+          this.$emit('updateUserName', userName)
+          this.name = null
+          this.password = null
+          this.$router.push({path: '/'})
         })
+        .catch(error => {
+          if (error.response.text === 'User not found.') {
+            this.$emit('setError', 'error.userNotFound')
+          } else {
+            this.$emit('setError', 'error.unexpectedError')
+          }
+        })
+
     },
   },
 }

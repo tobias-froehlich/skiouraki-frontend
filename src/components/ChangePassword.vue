@@ -11,16 +11,11 @@
         <div class="form-group">
             <button class="btn btn-primary" :disabled="v$.$invalid" @click.stop="changePassword">{{ $t('changePassword') }}</button>
         </div>
-        <error-modal
-                :error="error"
-                @resetError="() => error = null"
-        ></error-modal>
     </div>
 </template>
 
 <script>
 import userApi from '../apis/userApi.js'
-import ErrorModal from './ErrorModal.vue'
 import useVuelidate from '@vuelidate/core'
 
 export default {
@@ -30,9 +25,7 @@ export default {
       v$: useVuelidate(),
     }
   },
-  components: {
-    ErrorModal,
-  },
+  components: {},
   data() {
     return {
       name: null,
@@ -47,19 +40,14 @@ export default {
     changePassword() {
       userApi.changePassword(this.password)
         .then(userName => {
-          this.$emit('updateUserName', userName)}
-        )
-        .then(() => {
-            this.name = null
-            this.password = null
-          }
-        )
-        .then(() => {
-            this.$router.push('/')
-          }
-        )
-        .catch(error => {
-          this.error = error.response.text
+          this.$emit('updateUserName', userName)
+          this.name = null
+          this.password = null
+          this.$emit('setInfo', 'info.passwordChangedLogIn')
+          this.$router.push('/login')
+        })
+        .catch(() => {
+          this.$emit('setError', 'error.unexpectedError')
         })
     },
   },

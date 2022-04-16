@@ -1,12 +1,20 @@
 <template>
-    <div class="error-modal" v-if="error">
+    <div class="error-modal" v-if="error || info">
         <div class="error-modal-container">
-            <div class="error-modal-content container">
+            <div v-if="error" class="error-modal-content container">
                 <div class="row m-0 alert alert-warning">
-                    {{ error }}
+                    {{ $t(error) }}
                 </div>
                 <div class="row m-0">
                     <button class="btn btn-warning" @click.stop="$emit('resetError')">{{ $t('ok') }}</button>
+                </div>
+            </div>
+            <div v-else-if="info" class="error-modal-content container">
+                <div class="row m-0 alert alert-info">
+                    {{ $t(info) }}
+                </div>
+                <div class="row m-0">
+                    <button class="btn btn-info" @click.stop="$emit('resetInfo')">{{ $t('ok') }}</button>
                 </div>
             </div>
         </div>
@@ -16,11 +24,15 @@
 <script>
 
 export default {
-  name: 'ErrorModal',
+  name: 'MessageModal',
   components: {
   },
   props: {
     error: {
+      type: String,
+      required: false,
+    },
+    info: {
       type: String,
       required: false,
     },

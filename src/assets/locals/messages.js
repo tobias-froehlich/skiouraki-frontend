@@ -14,6 +14,16 @@ export default {
     ok: 'OK',
     changeUserName: 'Change user name',
     changePassword: 'Change password',
+    error: {
+      unexpectedError: 'Unexpected Error.',
+      theUserNameAlreadyExists: 'The user name already exists.',
+      userNotFound: 'User not found.',
+    },
+    info: {
+      accountCreatedLogIn: 'Your account has been created. Log in now.',
+      userNameChangedLogIn: 'Your user name was changed. Log in now with the new user name.',
+      passwordChangedLogIn: 'Your password was changed. Log in now with the new password.',
+    },
   },
   'de-DE': {
     skiouraki: "Σκιουράκι",
@@ -30,5 +40,15 @@ export default {
     ok: 'OK',
     changeUserName: 'Benutzernamen ändern',
     changePassword: 'Passwort ändern',
-  }
+    error: {
+      unexpectedError: 'Unerwarteter Fehler.',
+      theUserNameAlreadyExists: 'Der Benutzername existiert schon.',
+      userNotFound: 'Benutzername nicht gefunden.',
+    },
+    info: {
+      accountCreatedLogIn: 'Dein Account wurde erstellt. Logg dich jetzt ein.',
+      userNameChangedLogIn: 'Dein Benutzername wurde geändert. Logg dich jetzt mit deinem neuen Benutzernamen ein.',
+      passwordChangedLogIn: 'Dein Passwort wurde geändert. Logg dich jetzt mit deinem neuen Passwort ein.',
+    },
+  },
 }

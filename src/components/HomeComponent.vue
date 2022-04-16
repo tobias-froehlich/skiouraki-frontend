@@ -3,20 +3,20 @@
     {{ $t('helloWorld') }}
     <router-link to="/signup">{{ $t('signUp') }}</router-link>
     <button @click="() => error = 'something went wrong'">open modal</button>
-    <error-modal
+    <Message-modal
       :error="error"
       @resetError="() => error = null"
-    ></error-modal>
+    ></Message-modal>
   </div>
 </template>
 
 <script>
-import ErrorModal from './ErrorModal.vue'
+import MessageModal from './MessageModal.vue'
 
 export default {
   name: 'HomeComponent',
   components: {
-    ErrorModal,
+    MessageModal,
   },
   props: {},
   data() {

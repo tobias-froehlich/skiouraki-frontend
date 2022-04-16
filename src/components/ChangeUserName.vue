@@ -5,18 +5,13 @@
             <input id="name" class="form-control" :class="{invalid: v$.name.$invalid}" type="text" v-model="name"/>
         </div>
         <div class="form-group">
-            <button class="btn btn-primary" :disabled="v$.$invalid" @click.stop="changeName">{{ $t('changeName') }}</button>
+            <button class="btn btn-primary" :disabled="v$.$invalid" @click.stop="changeName">{{ $t('changeUserName') }}</button>
         </div>
-        <error-modal
-                :error="error"
-                @resetError="() => error = null"
-        ></error-modal>
     </div>
 </template>
 
 <script>
 import userApi from '../apis/userApi.js'
-import ErrorModal from './ErrorModal.vue'
 import useVuelidate from '@vuelidate/core'
 
 export default {
@@ -26,9 +21,7 @@ export default {
       v$: useVuelidate(),
     }
   },
-  components: {
-    ErrorModal,
-  },
+  components: {},
   data() {
     return {
       name: null,
@@ -53,19 +46,18 @@ export default {
     changeName() {
       userApi.changeName(this.name)
         .then(userName => {
-          this.$emit('updateUserName', userName)}
-        )
-        .then(() => {
-            this.name = null
-            this.password = null
-          }
-        )
-        .then(() => {
-            this.$router.push('/')
-          }
-        )
+          this.$emit('updateUserName', userName)
+          this.name = null
+          this.password = null
+          this.$emit('setInfo', 'info.userNameChangedLogIn')
+          this.$router.push('/login')
+        })
         .catch(error => {
-          this.error = error.response.text
+          if (error.rawResponse === 'The new user name already exists.') {
+            this.$emit('setError', 'error.theUserNameAlreadyExists')
+          } else {
+            this.$emit('setError', 'error.unexpectedError')
+          }
         })
     },
   },
