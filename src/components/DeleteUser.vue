@@ -1,5 +1,5 @@
 <template>
-    <div class="row">
+    <div>
         <div class="form-group">
             <label for="name">{{ $t('confirmUserName') }}</label>
             <input id="name" class="form-control" :class="{invalid: v$.name.$invalid}" type="text" v-model="name"/>

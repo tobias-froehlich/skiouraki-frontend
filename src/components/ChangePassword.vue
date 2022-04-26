@@ -1,5 +1,5 @@
 <template>
-    <div class="row">
+    <div>
         <div class="form-group">
             <label for="password">{{ $t('password') }}</label>
             <input id="password" class="form-control" :class="{invalid: v$.password.$invalid}" type="password" v-model="password"/>
