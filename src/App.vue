@@ -14,7 +14,10 @@
           @resetInfo="() => info = null"
   ></message-modal>
 </template>
-
+<meta
+        name='viewport'
+        content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'
+/>
 <script>
 import HeaderBar from './components/HeaderBar.vue'
 import MessageModal from './components/MessageModal.vue'
