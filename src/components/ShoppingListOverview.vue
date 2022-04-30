@@ -3,7 +3,9 @@
         <div class="container">
             <button class="btn btn-primary" @click.stop="gotoFormAddShoppingList">+</button>
             <div class="row" v-for="shoppingList of shoppingLists" :key="shoppingList.id">
-                <span> {{ shoppingList.name }}
+                <span>
+                    {{ shoppingList.name }}
+                    <button class="btn btn-primary" @click.stop="() => gotoFormInviteForShoppingList(shoppingList.id)">{{ $t('invite') }}</button>
                     <button class="btn btn-primary" @click.stop="() => deleteShoppingList(shoppingList.id)">-</button>
                 </span>
             </div>
@@ -38,6 +40,9 @@ export default {
     },
     gotoFormAddShoppingList() {
       this.$router.push({path: '/form-add-shopping-list'})
+    },
+    gotoFormInviteForShoppingList(shoppingListId) {
+      this.$router.push({name: 'FormInviteForShoppingList', params: {shoppingListId: shoppingListId}})
     },
     deleteShoppingList(shoppingListId) {
       shoppingListApi.deleteShoppingList(shoppingListId)

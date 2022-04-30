@@ -19,11 +19,14 @@ export default {
     confirmUserName: 'Confirm user name',
     myShoppingLists: 'My shopping lists',
     addShoppingList: 'Add shopping list',
+    invite: 'Invite',
+    search: 'Search',
     error: {
       unexpectedError: 'Unexpected Error.',
       theUserNameAlreadyExists: 'The user name already exists.',
       userNotFound: 'User not found.',
       wrongPassword: 'Wrong password.',
+      shoppingListNotFound: 'Shopping list not found.',
     },
     info: {
       accountCreatedLogIn: 'Your account has been created. Log in now.',
@@ -52,11 +55,14 @@ export default {
     confirmUserName: 'Benutzernamen bestätigen',
     myShoppingLists: 'Meine Einkaufslisten',
     addShoppingList: 'Einkaufsliste hinzufügen',
+    invite: 'Einladen',
+    search: 'Suchen',
     error: {
       unexpectedError: 'Unerwarteter Fehler.',
       theUserNameAlreadyExists: 'Der Benutzername existiert schon.',
       userNotFound: 'Benutzername nicht gefunden.',
       wrongPassword: 'Falsches Passwort.',
+      shoppingListNotFound: 'Einkaufsliste nicht gefunden.',
     },
     info: {
       accountCreatedLogIn: 'Dein Account wurde erstellt. Logg dich jetzt ein.',

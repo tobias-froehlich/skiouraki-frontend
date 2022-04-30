@@ -13,6 +13,13 @@ function getShoppingLists() {
     .then(result => result.body)
 }
 
+function getShoppingList(shoppingListId) {
+  return superagent
+    .get(url + 'shopping-list/get/' + shoppingListId)
+    .set('Authorization', userApi.getAuthHeader())
+    .then(result => result.body)
+}
+
 function addShoppingList(name) {
   return superagent
     .post(url + 'shopping-list/add', {id: null, version: null, name: name, owner: null})
@@ -25,10 +32,19 @@ function deleteShoppingList(shoppingListId) {
     .set('Authorization', userApi.getAuthHeader())
 }
 
+function inviteUser(shoppingListId, userId) {
+  return superagent
+    .post(url + 'shopping-list/invite/' + shoppingListId + "/" + userId)
+    .set('Authorization', userApi.getAuthHeader())
+    .then(result => result.body)
+}
+
 export default {
   getShoppingLists,
+  getShoppingList,
   addShoppingList,
   deleteShoppingList,
+  inviteUser,
   minimalNameLength,
   maximalNameLength,
 }

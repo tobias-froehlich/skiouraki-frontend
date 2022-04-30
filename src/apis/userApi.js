@@ -39,6 +39,17 @@ function getUser(id) {
     .set('Authorization', authHeader)
 }
 
+function getUserByName(name) {
+  return superagent
+    .get(url + 'user/get-by-name/' + name)
+    .then(result => result.text)
+    .then(id => {
+      return superagent
+        .get(url + 'user/get/' + id)
+        .then(result => result.body)
+    })
+}
+
 function getUserSelf() {
   return superagent
     .get(url + 'user/get/' + myId)
@@ -133,6 +144,7 @@ export default {
   signUp,
   getAll,
   getUser,
+  getUserByName,
   getUserSelf,
   logIn,
   changeName,
