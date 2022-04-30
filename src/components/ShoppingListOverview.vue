@@ -1,9 +1,11 @@
 <template>
     <div>
         <div class="container">
-            <div button class="btn btn-primary" @click.stop="gotoFormAddShoppingList">+</div>
+            <button class="btn btn-primary" @click.stop="gotoFormAddShoppingList">+</button>
             <div class="row" v-for="shoppingList of shoppingLists" :key="shoppingList.id">
-                {{ shoppingList.name }}
+                <span> {{ shoppingList.name }}
+                    <button class="btn btn-primary" @click.stop="() => deleteShoppingList(shoppingList.id)">-</button>
+                </span>
             </div>
         </div>
     </div>
@@ -11,6 +13,7 @@
 
 <script>
 import useVuelidate from '@vuelidate/core'
+import userApi from '../apis/userApi.js'
 import shoppingListApi from '../apis/shoppingListApi.js'
 
 export default {
@@ -29,13 +32,24 @@ export default {
   validations: {
   },
   methods: {
+    refreshFromDb() {
+      shoppingListApi.getShoppingLists()
+        .then(shoppingLists => this.shoppingLists = shoppingLists)
+    },
     gotoFormAddShoppingList() {
       this.$router.push({path: '/form-add-shopping-list'})
     },
+    deleteShoppingList(shoppingListId) {
+      shoppingListApi.deleteShoppingList(shoppingListId)
+        .then(() => this.refreshFromDb())
+    },
   },
   created() {
-    shoppingListApi.getShoppingLists()
-      .then(shoppingLists => this.shoppingLists = shoppingLists)
+    if (userApi.getUserId()) {
+      this.refreshFromDb()
+    } else {
+      this.$router.push({path: '/login'})
+    }
   },
 }
 </script>

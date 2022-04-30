@@ -19,9 +19,16 @@ function addShoppingList(name) {
     .set('Authorization', userApi.getAuthHeader())
 }
 
+function deleteShoppingList(shoppingListId) {
+  return superagent
+    .delete(url + 'shopping-list/delete/' + shoppingListId)
+    .set('Authorization', userApi.getAuthHeader())
+}
+
 export default {
   getShoppingLists,
   addShoppingList,
+  deleteShoppingList,
   minimalNameLength,
   maximalNameLength,
 }

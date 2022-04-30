@@ -121,6 +121,10 @@ function getUserName() {
   return userName
 }
 
+function getUserId() {
+  return myId
+}
+
 function getAuthHeader() {
   return authHeader
 }
@@ -136,6 +140,7 @@ export default {
   logOut,
   deleteUser,
   getUserName,
+  getUserId,
   getAuthHeader,
   minimalNameLength,
   maximalNameLength,
