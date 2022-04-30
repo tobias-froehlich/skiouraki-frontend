@@ -5,6 +5,8 @@ import ChangeUserName from './components/ChangeUserName.vue'
 import ChangePassword from './components/ChangePassword.vue'
 import DeleteUser from './components/DeleteUser.vue'
 import OverviewComponent from './components/OverviewComponent.vue'
+import ShoppingListOverview from './components/ShoppingListOverview.vue'
+import FormAddShoppingList from './components/FormAddShoppingList.vue'
 import { createRouter, createWebHashHistory } from 'vue-router'
 
 const routes = [
@@ -15,6 +17,8 @@ const routes = [
   {path: '/change-password', component: ChangePassword},
   {path: '/delete-user', component: DeleteUser},
   {path: '/overview', component: OverviewComponent},
+  {path: '/shopping-list-overview', component: ShoppingListOverview},
+  {path: '/form-add-shopping-list', component: FormAddShoppingList},
 ]
 
 const router = createRouter({

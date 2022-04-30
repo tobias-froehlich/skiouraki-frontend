@@ -16,7 +16,7 @@ import useVuelidate from '@vuelidate/core'
 
 export default {
   name: 'ChangeUserName',
-    setup() {
+  setup() {
     return {
       v$: useVuelidate(),
     }

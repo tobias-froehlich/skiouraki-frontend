@@ -1,6 +1,9 @@
 <template>
   <div>
     <p>{{ $t('hello')}}, {{ userName }}!</p>
+    <button class="btn btn-primary" @click.stop="gotoShoppingListOverview">
+      {{ $t('myShoppingLists') }}
+    </button>
   </div>
 </template>
 
@@ -18,6 +21,9 @@ export default {
     }
   },
   methods: {
+    gotoShoppingListOverview() {
+      this.$router.push({path: '/shopping-list-overview'})
+    },
   },
 }
 </script>

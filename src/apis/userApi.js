@@ -53,7 +53,7 @@ function logIn(name, password) {
       myId = result.text
       authHeader = "Basic " + btoa(myId + ":" + password)
       return superagent
-        .get(url + 'user/get/' + result.text)
+        .get(url + 'user/authenticate/' + result.text)
         .set('Authorization', authHeader)
     })
     .then(result => {
@@ -121,6 +121,9 @@ function getUserName() {
   return userName
 }
 
+function getAuthHeader() {
+  return authHeader
+}
 
 export default {
   signUp,
@@ -133,6 +136,7 @@ export default {
   logOut,
   deleteUser,
   getUserName,
+  getAuthHeader,
   minimalNameLength,
   maximalNameLength,
   minimalPasswordLength,

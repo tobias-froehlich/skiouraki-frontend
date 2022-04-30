@@ -8,7 +8,6 @@ export default {
     name: 'Name',
     password: 'Password',
     repeatPassword: 'Repeat password',
-
     logOut: 'Log Out',
     doNothing: 'do nothing',
     'en-US': 'EN',
@@ -18,6 +17,8 @@ export default {
     changePassword: 'Change password',
     deleteAccount: 'Delete account',
     confirmUserName: 'Confirm user name',
+    myShoppingLists: 'My shopping lists',
+    addShoppingList: 'Add shopping list',
     error: {
       unexpectedError: 'Unexpected Error.',
       theUserNameAlreadyExists: 'The user name already exists.',
@@ -40,7 +41,6 @@ export default {
     name: 'Name',
     password: 'Passwort',
     repeatPassword: 'Passwort wiederholen',
-
     logOut: 'Ausloggen',
     doNothing: 'Mach nichts',
     'en-US': 'EN',
@@ -50,6 +50,8 @@ export default {
     changePassword: 'Passwort ändern',
     deleteAccount: 'Account löschen',
     confirmUserName: 'Benutzernamen bestätigen',
+    myShoppingLists: 'Meine Einkaufslisten',
+    addShoppingList: 'Einkaufsliste hinzufügen',
     error: {
       unexpectedError: 'Unerwarteter Fehler.',
       theUserNameAlreadyExists: 'Der Benutzername existiert schon.',

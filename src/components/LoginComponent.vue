@@ -20,7 +20,7 @@ import useVuelidate from '@vuelidate/core'
 
 export default {
   name: 'LoginComponent',
-    setup() {
+  setup() {
     return {
       v$: useVuelidate(),
     }
@@ -68,6 +68,7 @@ export default {
           } else if (error.rawResponse && error.rawResponse === 'Wrong credentials.') {
             this.$emit('setError', 'error.wrongPassword')
           } else {
+            alert(JSON.stringify(error))
             this.$emit('setError', 'error.unexpectedError')
           }
         })
