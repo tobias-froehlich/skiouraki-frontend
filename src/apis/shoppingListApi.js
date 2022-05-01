@@ -39,12 +39,34 @@ function inviteUser(shoppingListId, userId) {
     .then(result => result.body)
 }
 
+function getInvitations() {
+  return superagent
+    .get(url + 'shopping-list/get-invitations')
+    .set('Authorization', userApi.getAuthHeader())
+    .then(result => result.body)
+}
+
+function acceptInvitation(shoppingListId) {
+  return superagent
+    .post(url + 'shopping-list/accept-invitation/' + shoppingListId)
+    .set('Authorization', userApi.getAuthHeader())
+}
+
+function rejectInvitation(shoppingListId) {
+  return superagent
+    .post(url + 'shopping-list/reject-invitation/' + shoppingListId)
+    .set('Authorization', userApi.getAuthHeader())
+}
+
 export default {
   getShoppingLists,
   getShoppingList,
   addShoppingList,
   deleteShoppingList,
   inviteUser,
+  getInvitations,
+  acceptInvitation,
+  rejectInvitation,
   minimalNameLength,
   maximalNameLength,
 }

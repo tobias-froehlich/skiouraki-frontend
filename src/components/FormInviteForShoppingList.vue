@@ -69,15 +69,17 @@ export default {
         })
     },
     inviteUser() {
-      alert('invite')
       shoppingListApi.inviteUser(this.shoppingListId, this.userToBeInvited.id)
-        .then(invitedUsers => alert(JSON.stringify(invitedUsers)))
+        .then(() => {
+          this.$emit('setInfo', 'info.theUserIsInvited')
+        })
         .catch(error => {
-          alert(JSON.stringify(error))
           if (error.rawResponse === 'User not found.') {
             this.$emit('setError', 'error.userNotFound')
           } else if (error.rawResponse === 'ShoppingList not found.') {
             this.$emit('setError', 'error.shoppingListNotFound')
+          } else if (error.rawResponse === 'Cannot invite user to ShoppingList.') {
+            this.$emit('setError', 'error.theUserCannotBeInvitedToTheShoppingList')
           } else{
             this.$emit('setError', 'error.unexpectedError')
           }

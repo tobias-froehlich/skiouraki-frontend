@@ -5,8 +5,8 @@
             <div class="row" v-for="shoppingList of shoppingLists" :key="shoppingList.id">
                 <span>
                     {{ shoppingList.name }}
-                    <button class="btn btn-primary" @click.stop="() => gotoFormInviteForShoppingList(shoppingList.id)">{{ $t('invite') }}</button>
-                    <button class="btn btn-primary" @click.stop="() => deleteShoppingList(shoppingList.id)">-</button>
+                    <button v-if="shoppingList.owner === userId" class="btn btn-primary" @click.stop="() => gotoFormInviteForShoppingList(shoppingList.id)">{{ $t('invite') }}</button>
+                    <button v-if="shoppingList.owner === userId" class="btn btn-primary" @click.stop="() => deleteShoppingList(shoppingList.id)">-</button>
                 </span>
             </div>
         </div>
@@ -28,6 +28,7 @@ export default {
   components: {},
   data() {
     return {
+      userId: userApi.getUserId(),
       shoppingLists: [],
     }
   },

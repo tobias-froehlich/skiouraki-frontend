@@ -6,6 +6,7 @@ import ChangePassword from './components/ChangePassword.vue'
 import DeleteUser from './components/DeleteUser.vue'
 import OverviewComponent from './components/OverviewComponent.vue'
 import ShoppingListOverview from './components/ShoppingListOverview.vue'
+import InvitationOverview from './components/InvitationOverview.vue'
 import FormAddShoppingList from './components/FormAddShoppingList.vue'
 import FormInviteForShoppingList from './components/FormInviteForShoppingList.vue'
 import { createRouter, createWebHashHistory } from 'vue-router'
@@ -19,6 +20,7 @@ const routes = [
   {path: '/delete-user', component: DeleteUser},
   {path: '/overview', component: OverviewComponent},
   {path: '/shopping-list-overview', component: ShoppingListOverview},
+  {path: '/invitation-overview', component: InvitationOverview},
   {path: '/form-add-shopping-list', component: FormAddShoppingList},
   {path: '/form-invite-for-shopping-list', name: 'FormInviteForShoppingList', component: FormInviteForShoppingList, props: true},
 ]
