@@ -9,6 +9,7 @@ import ShoppingListOverview from './components/ShoppingListOverview.vue'
 import InvitationOverview from './components/InvitationOverview.vue'
 import FormAddShoppingList from './components/FormAddShoppingList.vue'
 import FormInviteForShoppingList from './components/FormInviteForShoppingList.vue'
+import ShoppingList from './components/ShoppingList.vue'
 import { createRouter, createWebHashHistory } from 'vue-router'
 
 const routes = [
@@ -23,6 +24,7 @@ const routes = [
   {path: '/invitation-overview', component: InvitationOverview},
   {path: '/form-add-shopping-list', component: FormAddShoppingList},
   {path: '/form-invite-for-shopping-list', name: 'FormInviteForShoppingList', component: FormInviteForShoppingList, props: true},
+  {path: '/shopping-list', name: 'ShoppingList', component: ShoppingList, props: true},
 ]
 
 const router = createRouter({

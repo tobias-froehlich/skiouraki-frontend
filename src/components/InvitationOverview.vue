@@ -45,7 +45,7 @@ export default {
       shoppingListApi.acceptInvitation(shoppingListId)
         .then(() => this.refreshFromDb())
         .catch(error => {
-          if (error.rawResponse === 'Cannot accept invitation.') {
+          if (error.rawResponse === 'Invitation not found.') {
             this.$emit('setError', 'error.theInvitationCannotBeAccepted')
           } else{
             this.$emit('setError', 'error.unexpectedError')

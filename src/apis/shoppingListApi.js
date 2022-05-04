@@ -34,7 +34,14 @@ function deleteShoppingList(shoppingListId) {
 
 function inviteUser(shoppingListId, userId) {
   return superagent
-    .post(url + 'shopping-list/invite/' + shoppingListId + "/" + userId)
+    .post(url + 'shopping-list/invite/' + shoppingListId + '/' + userId)
+    .set('Authorization', userApi.getAuthHeader())
+    .then(result => result.body)
+}
+
+function withdrawInvitation(shoppingListId, userId) {
+  return superagent
+    .post(url + 'shopping-list/withdraw-invitation/' + shoppingListId + '/' + userId)
     .set('Authorization', userApi.getAuthHeader())
     .then(result => result.body)
 }
@@ -58,15 +65,38 @@ function rejectInvitation(shoppingListId) {
     .set('Authorization', userApi.getAuthHeader())
 }
 
+function removeUser(shoppingListId, userId) {
+  return superagent
+    .post(url + 'shopping-list/remove-user-from-shopping-list/' + shoppingListId + '/' + userId)
+    .set('Authorization', userApi.getAuthHeader())
+}
+
+function leaveShoppingList(shoppingListId) {
+  return superagent
+    .post(url + 'shopping-list/leave-shopping-list/' + shoppingListId)
+    .set('Authorization', userApi.getAuthHeader())
+}
+
+function getEnrichedShoppingList(shoppingListId) {
+  return superagent
+    .get(url + 'shopping-list/get-enriched/' + shoppingListId)
+    .set('Authorization', userApi.getAuthHeader())
+    .then(result => result.body)
+}
+
 export default {
   getShoppingLists,
   getShoppingList,
   addShoppingList,
   deleteShoppingList,
   inviteUser,
+  withdrawInvitation,
   getInvitations,
   acceptInvitation,
   rejectInvitation,
+  removeUser,
+  leaveShoppingList,
+  getEnrichedShoppingList,
   minimalNameLength,
   maximalNameLength,
 }
