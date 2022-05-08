@@ -9,6 +9,7 @@
             </div>
         </div>
         <p>invited Users:</p>
+        <button v-if="enrichedShoppingList.owner === userId" @click.stop="gotoFormInviteForShoppingList">{{ $t('invite') }}</button>
         <div class="container">
             <div class="row" v-for="member of enrichedShoppingList.invitedUsers" :key="member.id">
                 {{ member.name }}
@@ -58,6 +59,9 @@ export default {
           }
           this.$emit('refreshFromDb')
         })
+    },
+    gotoFormInviteForShoppingList() {
+      this.$router.push({name: 'FormInviteForShoppingList', params: {shoppingListId: this.enrichedShoppingList.id}})
     },
     withdrawInvitation(userId) {
       shoppingListApi.withdrawInvitation(this.enrichedShoppingList.id, userId)

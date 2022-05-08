@@ -5,7 +5,6 @@
             <div class="row" v-for="shoppingList of shoppingLists" :key="shoppingList.id">
                 <span>
                     <button class="btn btn-primary" @click.stop="() => gotoShoppingList(shoppingList.id)">{{ shoppingList.name }}</button>
-                    <button v-if="shoppingList.owner === userId" class="btn btn-primary" @click.stop="() => gotoFormInviteForShoppingList(shoppingList.id)">{{ $t('invite') }}</button>
                     <button v-if="shoppingList.owner === userId" class="btn btn-primary" @click.stop="() => deleteShoppingList(shoppingList.id)">-</button>
                 </span>
             </div>
@@ -41,9 +40,6 @@ export default {
     },
     gotoFormAddShoppingList() {
       this.$router.push({path: '/form-add-shopping-list'})
-    },
-    gotoFormInviteForShoppingList(shoppingListId) {
-      this.$router.push({name: 'FormInviteForShoppingList', params: {shoppingListId: shoppingListId}})
     },
     deleteShoppingList(shoppingListId) {
       shoppingListApi.deleteShoppingList(shoppingListId)
