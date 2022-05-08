@@ -2,10 +2,11 @@
 
 $myFancyColor: #307030;
 
-$errorBorderColor: red;
+$errorBorderColor: #de2e2e;
 
 $primaryColor: #4045c7;
 $primaryColorLight: #6f72c4;
+$primaryColorBackground: #8b8dc6;
 
 $primaryColorDisabledBack: #717171;
 $primaryColorDisabledFront: #b6b6b6;
@@ -70,6 +71,23 @@ input, .btn {
   border-color: black;//$secondaryColorLight;
 }
 
+.btn-message-error, .btn-message-error:hover {
+  color: white;
+  background-color: $errorBorderColor;
+  border-color: black;//$primaryColor;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+}
+
+.btn-message-info, .btn-message-info:hover {
+  color: white;
+  background-color: $primaryColor;
+  border-color: black;//$primaryColor;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+}
 
 // Inputs
 
@@ -82,17 +100,94 @@ input, .btn {
   box-shadow: 0px 0px 5px $secondaryColorLight;
 }
 
-// Error Modal
+.btn-add {
+}
 
-.error-modal-content {
+// Modals
+
+.message-modal-content {
    width: 75%;
+   background-color: white;
+   border-style: solid;
+   border-width: 2px;
+   border-color: $primaryColor;
+   padding: 10px;
+//    box-shadow: 0px 0px 5px;
+//    box-shadow-color: $primaryColor;
+}
+
+.message-modal-content.error {
+   border-color: $errorBorderColor;
+   box-shadow-color: $errorBorderColor;
+}
+
+.message-modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.message-modal-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff80;
+}
+
+.form-modal-content {
+   width: 90%;
+   background-color: white;
+   border-style: solid;
+   border-width: 2px;
+   border-color: $primaryColor;
+   padding: 10px;
+//    box-shadow: 0px 0px 20px $secondaryColor;
+}
+
+.form-modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.form-modal-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff80;
+}
+
+.message-modal-content .btn, .form-modal-content .btn {
+  margin-top: 10px;
+}
+
+// Alerts
+
+.alert {
+  border-radius: 0;
 }
 
 // Invalid input fields
 input.invalid {
-  border: $errorBorderColor 2px solid;
+  border: $errorBorderColor 1px solid;
+  //box-shadow: 0px 0px 5px $errorBorderColor;
 }
 
 input.invalid:focus {
-  border: $errorBorderColor 2px solid;
+  border: $errorBorderColor 1px solid;
+  box-shadow: 0px 0px 5px $errorBorderColor;
+}
+
+// Shopping List Item
+
+.shopping-list-item {
+  color: $secondaryColor;
 }

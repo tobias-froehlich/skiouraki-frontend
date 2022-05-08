@@ -19,6 +19,7 @@
                 <shopping-list-items
                         v-if="tab==='ITEMS'"
                         :enrichedShoppingList="enrichedShoppingList"
+                        @refresh="refresh"
                 ></shopping-list-items>
                 <shopping-list-members
                         v-if="tab==='MEMBERS'"
@@ -66,6 +67,9 @@ export default {
   validations: {
   },
   methods: {
+    refresh(enrichedShoppingList) {
+      this.enrichedShoppingList = enrichedShoppingList
+    },
     refreshFromDb() {
       shoppingListApi.getEnrichedShoppingList(this.shoppingListId)
         .then(enrichedShoppingList => this.enrichedShoppingList = enrichedShoppingList)

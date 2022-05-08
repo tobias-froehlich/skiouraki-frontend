@@ -6,6 +6,9 @@ const url = process.env.VUE_APP_BACKEND_URL
 const minimalNameLength = 1
 const maximalNameLength = 32
 
+const minimalItemNameLength = 1
+const maximalItemNameLength = 32
+
 function getShoppingLists() {
   return superagent
     .get(url + 'shopping-list/get')
@@ -84,6 +87,29 @@ function getEnrichedShoppingList(shoppingListId) {
     .then(result => result.body)
 }
 
+function addShoppingListItem(shoppingListId, name) {
+  const item = {
+    id: null,
+    version: null,
+    name: name,
+    createdBy: null,
+    modifiedBy: null,
+    boughtBy: null,
+    stateChangedBy: null,
+  }
+  return superagent
+    .post(url + 'shopping-list/add-item/' + shoppingListId, item)
+      .set('Authorization', userApi.getAuthHeader())
+      .then(result => result.body)
+}
+
+function removeShoppingListItem(shoppingListId, item) {
+  return superagent
+    .post(url + 'shopping-list/remove-item/' + shoppingListId, item)
+      .set('Authorization', userApi.getAuthHeader())
+      .then(result => result.body)
+}
+
 export default {
   getShoppingLists,
   getShoppingList,
@@ -97,6 +123,10 @@ export default {
   removeUser,
   leaveShoppingList,
   getEnrichedShoppingList,
+  addShoppingListItem,
+  removeShoppingListItem,
   minimalNameLength,
   maximalNameLength,
+  minimalItemNameLength,
+  maximalItemNameLength,
 }

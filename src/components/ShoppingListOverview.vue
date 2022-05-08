@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="container">
-            <button class="btn btn-primary" @click.stop="gotoFormAddShoppingList">+</button>
+            <button class="btn btn-primary btn-add" @click.stop="gotoFormAddShoppingList"><i class="bi bi-arrow-right"></i></button>
             <div class="row" v-for="shoppingList of shoppingLists" :key="shoppingList.id">
                 <span>
                     <button class="btn btn-primary" @click.stop="() => gotoShoppingList(shoppingList.id)">{{ shoppingList.name }}</button>
