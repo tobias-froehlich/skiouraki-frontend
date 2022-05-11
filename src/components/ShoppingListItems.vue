@@ -1,13 +1,17 @@
 <template>
     <div>
-        <div class="container">
-            <button @click.stop="showFormAddShoppingListItem = true">{{ $t('addItem') }}</button>
-            <div v-for="item of enrichedShoppingList.items" class="row" :key="item.id">
-                <div class="col-10">
-                    <span class="shopping-list-item">{{ item.name }}</span>
+        <div class="container p-0">
+            <div class="row row-list">
+                <div class="col">
+                    <button class="btn btn-primary btn-add" @click.stop="showFormAddShoppingListItem = true"><img src="../assets/img/plus.svg"></button>
                 </div>
-                <div class="col-1">
-                    <button @click.stop="() => removeShoppingListItem(item)">x</button>
+            </div>
+            <div v-for="item of enrichedShoppingList.items" class="row row-list" :key="item.id">
+                <div class="col-9">
+                    <button class="btn btn-shopping-list-item">{{ item.name }}</button>
+                </div>
+                <div class="col col-3">
+                    <button class="btn btn-primary btn-remove" @click.stop="() => removeShoppingListItem(item)"><img src="../assets/img/x.svg"></button>
                 </div>
             </div>
         </div>

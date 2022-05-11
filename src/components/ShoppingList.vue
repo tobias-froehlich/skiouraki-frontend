@@ -16,18 +16,19 @@
                 </ul>
             </div>
             <div class="row">
-                <shopping-list-items
-                        v-if="tab==='ITEMS'"
-                        :enrichedShoppingList="enrichedShoppingList"
-                        @refresh="refresh"
-                ></shopping-list-items>
-                <shopping-list-members
-                        v-if="tab==='MEMBERS'"
-                        :enrichedShoppingList="enrichedShoppingList"
-                        @refresh-from-db="refreshFromDb"
-                        @setError="error => $emit('setError', error)"
-                ></shopping-list-members>
-
+                <div class="col">
+                    <shopping-list-items
+                            v-if="tab==='ITEMS'"
+                            :enrichedShoppingList="enrichedShoppingList"
+                            @refresh="refresh"
+                    ></shopping-list-items>
+                    <shopping-list-members
+                            v-if="tab==='MEMBERS'"
+                            :enrichedShoppingList="enrichedShoppingList"
+                            @refresh-from-db="refreshFromDb"
+                            @setError="error => $emit('setError', error)"
+                    ></shopping-list-members>
+                </div>
             </div>
         </div>
     </div>

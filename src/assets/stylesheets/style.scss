@@ -100,9 +100,6 @@ input, .btn {
   box-shadow: 0px 0px 5px $secondaryColorLight;
 }
 
-.btn-add {
-}
-
 // Modals
 
 .message-modal-content {
@@ -186,8 +183,55 @@ input.invalid:focus {
   box-shadow: 0px 0px 5px $errorBorderColor;
 }
 
+// Lists
+.row-list {
+    border-style: none none solid none;
+    border-width: 1px;
+    border-color: black;
+}
+
+.row-list > .col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.btn-add {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: auto;
+  padding: 0;
+}
+
+.btn-add > img {
+  margin: 0;
+  padding: 0;
+}
+
+.btn-remove {
+  margin: auto;
+  padding: 0;
+}
+
+.btn-remove > img {
+  margin: 0;
+  padding: 0;
+}
+
+// Shopping List
+
+.btn-shopping-list {
+  background-color: white;
+  color: $primaryColor;
+  border: none;
+}
+
+
 // Shopping List Item
 
-.shopping-list-item {
+.btn-shopping-list-item {
+  background-color: white;
   color: $secondaryColor;
 }

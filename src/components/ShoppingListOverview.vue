@@ -1,12 +1,18 @@
 <template>
     <div>
         <div class="container">
-            <button class="btn btn-primary btn-add" @click.stop="gotoFormAddShoppingList"><i class="bi bi-arrow-right"></i></button>
-            <div class="row" v-for="shoppingList of shoppingLists" :key="shoppingList.id">
-                <span>
-                    <button class="btn btn-primary" @click.stop="() => gotoShoppingList(shoppingList.id)">{{ shoppingList.name }}</button>
-                    <button v-if="shoppingList.owner === userId" class="btn btn-primary" @click.stop="() => deleteShoppingList(shoppingList.id)">-</button>
-                </span>
+            <div class="row row-list">
+                <div class="col">
+                    <button class="btn btn-primary btn-add" @click.stop="gotoFormAddShoppingList"><img src="../assets/img/plus.svg"></button>
+                </div>
+            </div>
+            <div class="row row-list" v-for="shoppingList of shoppingLists" :key="shoppingList.id">
+                <div class="col-9">
+                    <button class="btn btn-shopping-list" @click.stop="() => gotoShoppingList(shoppingList.id)"><img src="../assets/img/list.svg">{{ shoppingList.name }}</button>
+                </div>
+                <div style="" class="col col-3">
+                    <button v-if="shoppingList.owner === userId" class="btn btn-primary btn-remove" @click.stop="() => deleteShoppingList(shoppingList.id)"><img src="../assets/img/x.svg"></button>
+                </div>
             </div>
         </div>
     </div>
