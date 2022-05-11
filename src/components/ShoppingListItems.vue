@@ -57,6 +57,14 @@ export default {
     removeShoppingListItem(item) {
         shoppingListApi.removeShoppingListItem(this.enrichedShoppingList.id, item)
           .then(enrichedShoppingList => this.$emit('refresh', enrichedShoppingList))
+          .catch(error => {
+            if (error.rawResponse === 'Cannot remove ShoppingListItem.') {
+              this.$emit('setError', 'error.cannotDeleteItem')
+            } else {
+              this.$emit('setError', 'error.unexpectedError')
+            }
+            this.$emit('refreshFromDb')
+          })
     }
   },
   created() {

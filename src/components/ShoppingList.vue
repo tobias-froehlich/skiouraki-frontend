@@ -21,6 +21,8 @@
                             v-if="tab==='ITEMS'"
                             :enrichedShoppingList="enrichedShoppingList"
                             @refresh="refresh"
+                            @refresh-from-db="refreshFromDb"
+                            @setError="error => $emit('setError', error)"
                     ></shopping-list-items>
                     <shopping-list-members
                             v-if="tab==='MEMBERS'"

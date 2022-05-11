@@ -50,6 +50,14 @@ export default {
     deleteShoppingList(shoppingListId) {
       shoppingListApi.deleteShoppingList(shoppingListId)
         .then(() => this.refreshFromDb())
+        .catch(error => {
+          if (error.rawResponse === 'ShoppingList not found.') {
+            this.$emit('setError', 'error.cannotDeleteShoppingList')
+          } else {
+            this.$emit('setError', 'error.unexpectedError')
+          }
+          this.refreshFromDb()
+        })
     },
     gotoShoppingList(shoppingListId) {
       this.$router.push({name: 'ShoppingList', params: {shoppingListId: shoppingListId}})

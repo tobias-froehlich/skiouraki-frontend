@@ -38,6 +38,8 @@ export default {
       shoppingListNotFound: 'The shopping list was not found. Maybe you have been removed from the shopping list or the shopping list was deleted.',
       cannotLeaveShoppingList: 'You cannot leave the shopping list. Maybe you have already been removed from the shopping list or the shopping list was deleted.',
       cannotWithdrawInvitation: 'The invitation cannot be withdrawn. Maybe the invited user already accepted or rejected the invitation.',
+      cannotDeleteShoppingList: 'The shopping list cannot be deleted. Maybe it was deleted already.',
+      cannotDeleteItem: 'The item cannot be deleted. Maybe it was deleted already.',
     },
     info: {
       accountCreatedLogIn: 'Your account has been created. Log in now.',
@@ -86,6 +88,8 @@ export default {
       shoppingListNotFound: 'Die Einkaufsliste konnte nicht gefunden werden. Möglicherweise wurdest du von der Einkaufsliste entfernt oder die Einkaufsliste wurde gelöscht.',
       cannotLeaveShoppingList: 'Du kannst die Einkaufsliste nicht verlassen. Möglicherweise wurdest du bereits von der Einkaufsliste entfernt oder die Einkaufsliste wurde gelöscht.',
       cannotWithdrawInvitation: 'Die Einladung kann nicht zurückgezogen werden. Möglicherweise hat der eingeladene Benutzer bereits die Einladung angenommen oder abgelehnt.',
+      cannotDeleteShoppingList: 'Die Einkaufsliste kann nicht gelöscht werden. Möglicherweise wurde sie schon gelöscht.',
+      cannotDeleteItem: 'Der Eintrag kann nicht gelöscht werden. Möglicherweise wurde er schon gelöscht.',
     },
     info: {
       accountCreatedLogIn: 'Dein Account wurde erstellt. Logg dich jetzt ein.',
