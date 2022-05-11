@@ -110,6 +110,20 @@ function removeShoppingListItem(shoppingListId, item) {
       .then(result => result.body)
 }
 
+function setBought(shoppingListId, item) {
+  return superagent
+    .post(url + 'shopping-list/set-bought/' + shoppingListId, item)
+      .set('Authorization', userApi.getAuthHeader())
+      .then(result => result.body)
+}
+
+function setUnbought(shoppingListId, item) {
+  return superagent
+    .post(url + 'shopping-list/set-unbought/' + shoppingListId, item)
+      .set('Authorization', userApi.getAuthHeader())
+      .then(result => result.body)
+}
+
 export default {
   getShoppingLists,
   getShoppingList,
@@ -125,6 +139,8 @@ export default {
   getEnrichedShoppingList,
   addShoppingListItem,
   removeShoppingListItem,
+  setBought,
+  setUnbought,
   minimalNameLength,
   maximalNameLength,
   minimalItemNameLength,

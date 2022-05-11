@@ -40,6 +40,7 @@ export default {
       cannotWithdrawInvitation: 'The invitation cannot be withdrawn. Maybe the invited user already accepted or rejected the invitation.',
       cannotDeleteShoppingList: 'The shopping list cannot be deleted. Maybe it was deleted already.',
       cannotDeleteItem: 'The item cannot be deleted. Maybe it was deleted already.',
+
     },
     info: {
       accountCreatedLogIn: 'Your account has been created. Log in now.',
@@ -47,6 +48,8 @@ export default {
       passwordChangedLogIn: 'Your password was changed. Log in now with the new password.',
       userDeleted: 'Your user account has been deleted.',
       theUserIsInvited: 'The user is invited',
+      somebodyHasBoughtThisItemAlready: 'Somebody has bought this item already or it was deleted.',
+
     },
   },
   'de-DE': {
@@ -97,6 +100,8 @@ export default {
       passwordChangedLogIn: 'Dein Passwort wurde geändert. Logg dich jetzt mit deinem neuen Passwort ein.',
       userDeleted: 'Dein Account wurde gelöscht.',
       theUserIsInvited: 'Der Benutzer wurde eingeladen.',
+      somebodyHasBoughtThisItemAlready: 'Jemand hat das bereits gekauft oder es wurde gelöscht.',
+
     },
   },
 }

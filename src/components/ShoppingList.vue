@@ -23,6 +23,7 @@
                             @refresh="refresh"
                             @refresh-from-db="refreshFromDb"
                             @setError="error => $emit('setError', error)"
+                            @setInfo="info => $emit('setInfo', info)"
                     ></shopping-list-items>
                     <shopping-list-members
                             v-if="tab==='MEMBERS'"
