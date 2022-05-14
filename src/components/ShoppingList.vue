@@ -18,7 +18,7 @@
             <div class="row">
                 <div class="col">
                     <shopping-list-items
-                            v-if="tab==='ITEMS'"
+                            v-if="tab==='ITEMS' && enrichedShoppingList"
                             :enrichedShoppingList="enrichedShoppingList"
                             @refresh="refresh"
                             @refresh-from-db="refreshFromDb"
@@ -64,7 +64,7 @@ export default {
   data() {
     return {
       userId: userApi.getUserId(),
-      tab: 'LIST',
+      tab: 'ITEMS',
       enrichedShoppingList: null,
     }
   },
