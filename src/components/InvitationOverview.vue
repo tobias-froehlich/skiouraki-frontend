@@ -1,16 +1,22 @@
 <template>
     <div>
         <div class="container">
-            <div class="row" v-for="shoppingList of shoppingLists" :key="shoppingList.id">
-                <span>
-                    {{ shoppingList.name }}
-                    <button class="btn btn-primary" @click.stop="() => acceptInvitation(shoppingList.id)">
-                        {{ $t('accept') }}
+            <div class="row row-list">
+                <div class="col">
+                </div>
+            </div>
+            <div class="row row-list" v-for="shoppingList of shoppingLists" :key="shoppingList.id">
+                <div class="col-9">
+                    <button class="btn btn-shopping-list" @click.stop="() => acceptInvitation(shoppingList.id)">
+                        <img src="../assets/img/list.svg">
+                        {{ shoppingList.name }}
                     </button>
-                    <button class="btn btn-primary" @click.stop="() => rejectInvitation(shoppingList.id)">
-                        {{ $t('reject') }}
+                </div>
+                <div class="col col-3">
+                    <button class="btn btn-primary btn-remove" @click.stop="() => rejectInvitation(shoppingList.id)">
+                        <img src="../assets/img/x.svg">
                     </button>
-                </span>
+                </div>
             </div>
         </div>
     </div>

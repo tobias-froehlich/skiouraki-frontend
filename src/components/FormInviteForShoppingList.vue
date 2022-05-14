@@ -7,8 +7,17 @@
         </div>
         <button class="btn btn-primary" :disabled="v$.name.$invalid" @click.stop="searchUser">{{ $t('search') }}</button>
         <div v-if="userToBeInvited">
-            {{ userToBeInvited.name }}
-            <button class="btn btn-primary" @click.stop="inviteUser">{{ $t('invite') }}</button>
+<!--            <div class="container">-->
+<!--                <div class="row">-->
+<!--                    <div class="col col-8">-->
+                        <div class="user-field"><img src="../assets/img/squirrel.svg">&nbsp;{{ userToBeInvited.name }}</div>
+<!--                    </div>-->
+<!--                    <div class="col col-4">-->
+                        <button class="btn btn-primary" @click.stop="inviteUser">{{ $t('invite') }}</button>
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
         </div>
 
     </div>

@@ -1,19 +1,35 @@
 <template>
     <div>
         <p>Members:</p>
-        <div class="container">
-            <div class="row" v-for="member of enrichedShoppingList.members" :key="member.id">
-                {{ member.name }}
-                <button v-if="(enrichedShoppingList.owner===userId) && (enrichedShoppingList.owner!==member.id)" class="btn btn-primary" @click.stop="() => removeUser(member.id)">remove</button>
-                <button v-if="(enrichedShoppingList.owner!==userId) && (userId==member.id)" class="btn btn-primary" @click.stop="() => leaveShoppingList()">leave</button>
+        <div class="container p-0">
+            <div class="row row-list">
+                <div class="col">
+                </div>
+            </div>
+            <div class="row row-list" v-for="member of enrichedShoppingList.members" :key="member.id">
+                <div class="col col-9">
+                    <div class="user-field"><img src="../assets/img/squirrel.svg">&nbsp;{{ member.name }}</div>
+                </div>
+                <div class="col col-3">
+                    <button v-if="(enrichedShoppingList.owner===userId) && (enrichedShoppingList.owner!==member.id)" class="btn btn-primary btn-remove" @click.stop="() => removeUser(member.id)"><img src="../assets/img/x.svg"></button>
+                    <button v-if="(enrichedShoppingList.owner!==userId) && (userId==member.id)" class="btn btn-primary" @click.stop="() => leaveShoppingList()">leave</button>
+                </div>
             </div>
         </div>
         <p>invited Users:</p>
-        <button v-if="enrichedShoppingList.owner === userId" @click.stop="gotoFormInviteForShoppingList">{{ $t('invite') }}</button>
-        <div class="container">
-            <div class="row" v-for="member of enrichedShoppingList.invitedUsers" :key="member.id">
-                {{ member.name }}
-                <button v-if="(enrichedShoppingList.owner===userId)" class="btn btn.primary" @click.stop="() => withdrawInvitation(member.id)">withdraw</button>
+        <div class="container p-0">
+            <div class="row row-list">
+                <div class="col">
+                    <button v-if="enrichedShoppingList.owner === userId" class="btn btn-primary btn-add" @click.stop="gotoFormInviteForShoppingList"><img src="../assets/img/plus.svg"></button>
+                </div>
+            </div>
+            <div class="row row-list" v-for="member of enrichedShoppingList.invitedUsers" :key="member.id">
+                <div class="col col-9 p-0">
+                    <div class="user-field"><img src="../assets/img/squirrel.svg">&nbsp;{{ member.name }}</div>
+                </div>
+                <div class="col col-3">
+                    <button v-if="(enrichedShoppingList.owner===userId)" class="btn btn-primary btn-remove" @click.stop="() => withdrawInvitation(member.id)"><img src="../assets/img/x.svg"></button>
+                </div>
             </div>
         </div>
 

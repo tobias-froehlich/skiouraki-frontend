@@ -2,18 +2,20 @@
     <div>
         <div class="row m-0 p-0">
             <div class="col p-0">
-                <router-link class="btn btn-secondary d-inline float-left" :to="userName ? '/overview' : '/'">{{ $t('skiouraki') }}</router-link>
+                <router-link class="btn btn-secondary float-left btn-icon" :to="userName ? '/overview' : '/'"><img src="../assets/img/home.svg"></router-link>
             </div>
             <div class="col p-0">
                 <drop-down
                         class="d-inline float-end"
+                        clazz="d-inline float-end btn btn-secondary btn-icon btn-header"
                         v-if="userName"
                         :options="dropDownUserOptions">
-                    {{ userName }}
+                    <img src="../assets/img/squirrel.svg">
                 </drop-down>
-                <router-link class="btn btn-secondary d-inline float-end" v-else to="/login">{{ $t('logIn') }}</router-link>
+                <router-link class="btn btn-secondary d-inline float-end btn-header" v-else to="/login">{{ $t('logIn') }}</router-link>
                 <drop-down
                         class="d-inline float-end"
+                        clazz="btn btn-secondary btn-header"
                         :options="dropDownLocaleOptions"
                 >
                     {{ $t($i18n.locale) }}

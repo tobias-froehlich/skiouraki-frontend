@@ -1,7 +1,7 @@
 <template>
     <div class="drop-down"
     >
-        <button ref="theButton" class="btn btn-secondary drop-down-button"
+        <button ref="theButton" :class="clazz + ' drop-down-button'"
                 @click.stop="() => expanded = !expanded"
                 @blur="looseFocus"
         >
@@ -25,7 +25,11 @@ export default {
     options: {
       type: Array,
       required: true,
-    }
+    },
+    clazz: {
+      type: String,
+      required: false,
+    },
   },
   data() {
     return {
