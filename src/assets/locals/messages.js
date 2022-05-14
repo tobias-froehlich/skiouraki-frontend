@@ -26,6 +26,9 @@ export default {
     search: 'Search',
     accept: 'Accept',
     reject: 'Reject',
+    items: 'Items',
+    members: 'Members',
+    invitations: 'Invitations',
     error: {
       unexpectedError: 'Unexpected Error.',
       theUserNameAlreadyExists: 'The user name already exists.',
@@ -79,6 +82,9 @@ export default {
     search: 'Suchen',
     accept: 'Annehmen',
     reject: 'Ablehnen',
+    items: 'Einträge',
+    members: 'Teilnehmer',
+    invitations: 'Einladungen',
     error: {
       unexpectedError: 'Unerwarteter Fehler.',
       theUserNameAlreadyExists: 'Der Benutzername existiert schon.',

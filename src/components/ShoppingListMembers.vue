@@ -1,6 +1,6 @@
 <template>
     <div>
-        <p>Members:</p>
+        <p>{{ $t('members') }}</p>
         <div class="container p-0">
             <div class="row row-list">
                 <div class="col">
@@ -16,7 +16,7 @@
                 </div>
             </div>
         </div>
-        <p>invited Users:</p>
+        <p>{{ $t('invitations') }}</p>
         <div class="container p-0">
             <div class="row row-list">
                 <div class="col">

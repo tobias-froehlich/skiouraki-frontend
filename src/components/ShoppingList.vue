@@ -5,12 +5,12 @@
                 <ul class="nav nav-tabs">
                     <li class="nav-item">
                         <button class="btn" @click.stop="() => tab='ITEMS'">
-                            Items
+                            {{ $t('items') }}
                         </button>
                     </li>
                     <li class="nav-item">
                         <button class="btn" @click.stop="() => tab='MEMBERS'">
-                            Members
+                            {{ $t('members') }}
                         </button>
                     </li>
                 </ul>
