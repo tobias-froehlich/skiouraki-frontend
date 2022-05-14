@@ -1,12 +1,8 @@
 <template>
     <div>
         <div class="container p-0">
-            <div class="row row-list">
-                <div class="col">
-                </div>
-            </div>
             <div class="row row-list" v-for="member of enrichedShoppingList.members" :key="member.id">
-                <div class="col col-9">
+                <div class="col col-9 p-0">
                     <div class="user-field"><img src="../assets/img/squirrel.svg">&nbsp;{{ member.name }}</div>
                 </div>
                 <div class="col col-3">

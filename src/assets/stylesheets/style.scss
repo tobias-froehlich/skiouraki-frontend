@@ -26,6 +26,10 @@ input, .btn {
   margin: 2px;
 }
 
+.btn:focus {
+  box-shadow: none;
+}
+
 .btn-header {
   height: 42px;
 }
@@ -119,6 +123,23 @@ rooter-link.btn {
 .form-control:focus {
   outline: none;
   box-shadow: 0px 0px 5px $secondaryColorLight;
+}
+
+// Tabs
+
+.nav-tabs {
+  border-bottom: none; //2px solid black;
+}
+
+.nav-item {
+  border-bottom: 2px solid black;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+}
+
+.nav-item[data-active-tab=true] {
+  border-bottom: none;
 }
 
 // Modals

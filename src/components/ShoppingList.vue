@@ -3,17 +3,17 @@
         <div class="container">
             <div class="row">
                 <ul class="nav nav-tabs">
-                    <li class="nav-item">
+                    <li class="nav-item" :data-active-tab="tab === 'ITEMS'">
                         <button class="btn" @click.stop="() => tab='ITEMS'">
                             {{ $t('items') }}
                         </button>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" :data-active-tab="tab === 'MEMBERS'">
                         <button class="btn" @click.stop="() => tab='MEMBERS'">
                             {{ $t('members') }}
                         </button>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" :data-active-tab="tab === 'INVITATIONS'">
                         <button class="btn" @click.stop="() => tab='INVITATIONS'">
                             {{ $t('invitations') }}
                         </button>
