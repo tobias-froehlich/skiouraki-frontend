@@ -13,6 +13,11 @@
                             {{ $t('members') }}
                         </button>
                     </li>
+                    <li class="nav-item">
+                        <button class="btn" @click.stop="() => tab='INVITATIONS'">
+                            {{ $t('invitations') }}
+                        </button>
+                    </li>
                 </ul>
             </div>
             <div class="row">
@@ -31,6 +36,12 @@
                             @refresh-from-db="refreshFromDb"
                             @setError="error => $emit('setError', error)"
                     ></shopping-list-members>
+                    <shopping-list-invitations
+                            v-if="tab==='INVITATIONS'"
+                            :enrichedShoppingList="enrichedShoppingList"
+                            @refresh-from-db="refreshFromDb"
+                            @setError="error => $emit('setError', error)"
+                    ></shopping-list-invitations>
                 </div>
             </div>
         </div>
@@ -43,6 +54,7 @@ import userApi from '../apis/userApi.js'
 import shoppingListApi from '../apis/shoppingListApi.js'
 import ShoppingListItems from './ShoppingListItems.vue'
 import ShoppingListMembers from './ShoppingListMembers.vue'
+import ShoppingListInvitations from './ShoppingListInvitations.vue'
 
 export default {
   name: 'ShoppingList',
@@ -54,6 +66,7 @@ export default {
   components: {
     ShoppingListItems,
     ShoppingListMembers,
+    ShoppingListInvitations,
   },
   props: {
     shoppingListId: {
