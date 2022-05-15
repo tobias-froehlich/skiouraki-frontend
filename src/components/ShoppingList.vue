@@ -19,6 +19,8 @@
                             {{ $t('invitations') }}
                         </button>
                     </li>
+                    <li class="nav-item-right-fill">
+                    </li>
                 </ul>
             </div>
             <div class="row">

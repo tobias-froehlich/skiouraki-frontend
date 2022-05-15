@@ -129,6 +129,8 @@ rooter-link.btn {
 
 .nav-tabs {
   border-bottom: none; //2px solid black;
+  display: flex;
+  padding: 0;
 }
 
 .nav-item {
@@ -143,6 +145,7 @@ rooter-link.btn {
 
 .nav-item-right-fill {
   border-bottom: 2px solid black;
+  flex-grow: 1;
 }
 
 // Modals
