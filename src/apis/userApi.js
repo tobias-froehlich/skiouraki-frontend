@@ -44,7 +44,6 @@ function getUserByName(name) {
     .get(url + 'user/get-by-name/' + name)
     .then(result => result.text)
     .then(id => {
-      alert(id)
       return superagent
         .get(url + 'user/get/' + id)
         .then(result => result.body)
