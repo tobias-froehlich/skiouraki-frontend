@@ -1,6 +1,5 @@
 <template>
   <div>
-    <p>{{ $t('hello')}}, {{ userName }}!</p>
     <div class="container">
       <div class="row">
         <button class="btn btn-primary" @click.stop="gotoShoppingListOverview">
@@ -17,7 +16,6 @@
 </template>
 
 <script>
-import userApi from '../apis/userApi.js'
 
 export default {
   name: 'OverviewComponent',
@@ -25,9 +23,7 @@ export default {
   props: {
   },
   data() {
-    return {
-      userName: userApi.getUserName(),
-    }
+    return {}
   },
   methods: {
     gotoShoppingListOverview() {

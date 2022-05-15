@@ -62,13 +62,11 @@ export default {
           this.$router.push({path: '/overview'})
         })
         .catch(error => {
-
           if (error.response && error.response.text === 'User not found.') {
             this.$emit('setError', 'error.userNotFound')
           } else if (error.rawResponse && error.rawResponse === 'Wrong credentials.') {
             this.$emit('setError', 'error.wrongPassword')
           } else {
-            alert(JSON.stringify(error))
             this.$emit('setError', 'error.unexpectedError')
           }
         })

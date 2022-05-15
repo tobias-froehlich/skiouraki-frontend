@@ -42,8 +42,12 @@ function getUser(id) {
 function getUserByName(name) {
   return superagent
     .get(url + 'user/get-by-name/' + name)
-    .then(result => result.text)
+    .then(result => {
+      alert(JSON.stringify(result))
+      return result.text
+     })
     .then(id => {
+      alert(id)
       return superagent
         .get(url + 'user/get/' + id)
         .then(result => result.body)
@@ -62,7 +66,10 @@ function logIn(name, password) {
     .get(url + 'user/get-by-name/' + name)
     .then(result => {
       myId = result.text
-      authHeader = "Basic " + btoa(myId + ":" + password)
+      authHeader = "Basic " + btoa(encodeURIComponent(myId + ":" + password).replace(/%([0-9A-F]{2})/g,
+              function toSolidBytes(match, p1) {
+                  return String.fromCharCode('0x' + p1);
+          }));
       return superagent
         .get(url + 'user/authenticate/' + result.text)
         .set('Authorization', authHeader)
