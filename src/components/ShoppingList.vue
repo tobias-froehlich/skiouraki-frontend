@@ -42,6 +42,7 @@
                             :enrichedShoppingList="enrichedShoppingList"
                             @refresh-from-db="refreshFromDb"
                             @setError="error => $emit('setError', error)"
+                            @setInfo="info => $emit('setInfo', info)"
                     ></shopping-list-invitations>
                 </div>
             </div>

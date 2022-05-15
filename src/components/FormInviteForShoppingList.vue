@@ -1,7 +1,7 @@
 <template>
     <div class="form-modal">
         <div class="form-modal-container">
-            <div class="form-modal-content-container">
+            <div class="form-modal-content">
                 <div v-if="!userToBeInvited">
                     <div class="form-group">
                         <label for="name">{{ $t('name') }}</label>
@@ -78,6 +78,8 @@ export default {
       shoppingListApi.inviteUser(this.shoppingListId, this.userToBeInvited.id)
         .then(() => {
           this.$emit('setInfo', 'info.theUserIsInvited')
+          this.$emit('refreshFromDb')
+          this.$emit('cancel')
         })
         .catch(error => {
           if (error.rawResponse === 'User not found.') {

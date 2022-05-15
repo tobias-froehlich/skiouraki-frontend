@@ -21,6 +21,7 @@
                 @setInfo="info => $emit('setInfo', info)"
                 @setError="error => $emit('setError', error)"
                 @cancel="() => show='OVERVIEW'"
+                @refreshFromDb="() => $emit('refreshFromDb')"
         >
         </form-invite-for-shopping-list>
     </div>
