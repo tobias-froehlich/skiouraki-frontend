@@ -11,7 +11,6 @@
         <div class="form-group">
             <button class="btn btn-primary" :disabled="v$.$invalid" @click.stop="logIn">{{ $t('logIn') }}</button>
         </div>
-        <span>{{ showCode() }}</span>
     </div>
 </template>
 
