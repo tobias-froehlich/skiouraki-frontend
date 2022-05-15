@@ -6,7 +6,7 @@
                 <ul class="nav nav-tabs">
                     <li class="nav-item" :data-active-tab="tab === 'ITEMS'">
                         <button class="btn" @click.stop="() => tab='ITEMS'">
-                            {{ $t('items') }}
+                            {{ $t('list') }}
                         </button>
                     </li>
                     <li class="nav-item" :data-active-tab="tab === 'MEMBERS'">

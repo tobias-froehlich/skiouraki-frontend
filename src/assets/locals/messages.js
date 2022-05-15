@@ -26,9 +26,10 @@ export default {
     search: 'Search',
     accept: 'Accept',
     reject: 'Reject',
-    items: 'Items',
+    list: 'List',
     members: 'Members',
     invitations: 'Invitations',
+    leaveShoppingList: 'Quit shopping list',
     error: {
       unexpectedError: 'Unexpected Error.',
       theUserNameAlreadyExists: 'The user name already exists.',
@@ -82,9 +83,10 @@ export default {
     search: 'Suchen',
     accept: 'Annehmen',
     reject: 'Ablehnen',
-    items: 'Einträge',
+    list: 'Liste',
     members: 'Teilnehmer',
     invitations: 'Einladungen',
+    leaveShoppingList: 'Aus Einkaufsliste austreten',
     error: {
       unexpectedError: 'Unerwarteter Fehler.',
       theUserNameAlreadyExists: 'Der Benutzername existiert schon.',

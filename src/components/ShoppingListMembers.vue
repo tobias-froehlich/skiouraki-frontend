@@ -7,7 +7,14 @@
                 </div>
                 <div class="col col-3">
                     <button v-if="(enrichedShoppingList.owner===userId) && (enrichedShoppingList.owner!==member.id)" class="btn btn-primary btn-remove" @click.stop="() => removeUser(member.id)"><img src="../assets/img/x.svg"></button>
-                    <button v-if="(enrichedShoppingList.owner!==userId) && (userId==member.id)" class="btn btn-primary" @click.stop="() => leaveShoppingList()">leave</button>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <button v-if="(enrichedShoppingList.owner!==userId)" class="btn btn-primary" @click.stop="() => leaveShoppingList()">
+                        {{ $t('leaveShoppingList') }}
+                    </button>
                 </div>
             </div>
         </div>
