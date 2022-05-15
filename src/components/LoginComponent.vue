@@ -11,6 +11,7 @@
         <div class="form-group">
             <button class="btn btn-primary" :disabled="v$.$invalid" @click.stop="logIn">{{ $t('logIn') }}</button>
         </div>
+        <span>{{ showCode() }}</span>
     </div>
 </template>
 
@@ -72,7 +73,17 @@ export default {
             this.$emit('setError', 'error.unexpectedError')
           }
         })
-
+    },
+    showCode() {
+      if (this.name && this.name.length > 0) {
+        let result = ''
+        for (let i=0; i< this.name.length; i++) {
+          result += this.name.charCodeAt(i) + ' '
+        }
+        return result
+      } else {
+        return null
+      }
     },
   },
 }
