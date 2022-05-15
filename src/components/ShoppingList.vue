@@ -1,8 +1,17 @@
 <template>
     <div>
-        <div class="container">
+        <div v-if="enrichedShoppingList" class="container">
+            <div class="row row-name">
+                <div class="col col-9">
+                    <div style="width: 100%;" class="btn-shopping-list d-inline"><img src="../assets/img/list.svg">{{ enrichedShoppingList.name }}</div>
+                </div>
+                <div class="col col-3">
+                    <button class="btn btn-primary btn-refresh"
+                            @click.stop="refreshFromDb"
+                    ><img src="../assets/img/refresh.svg"></button>
+                </div>
+            </div>
             <div class="row">
-
                 <ul class="nav nav-tabs">
                     <li class="nav-item" :data-active-tab="tab === 'ITEMS'">
                         <button class="btn" @click.stop="() => tab='ITEMS'">
@@ -26,7 +35,7 @@
             <div class="row">
                 <div class="col">
                     <shopping-list-items
-                            v-if="tab==='ITEMS' && enrichedShoppingList"
+                            v-if="tab==='ITEMS'"
                             :enrichedShoppingList="enrichedShoppingList"
                             @refresh="refresh"
                             @refresh-from-db="refreshFromDb"
@@ -34,13 +43,13 @@
                             @setInfo="info => $emit('setInfo', info)"
                     ></shopping-list-items>
                     <shopping-list-members
-                            v-if="tab==='MEMBERS' && enrichedShoppingList"
+                            v-if="tab==='MEMBERS'"
                             :enrichedShoppingList="enrichedShoppingList"
                             @refresh-from-db="refreshFromDb"
                             @setError="error => $emit('setError', error)"
                     ></shopping-list-members>
                     <shopping-list-invitations
-                            v-if="tab==='INVITATIONS' && enrichedShoppingList"
+                            v-if="tab==='INVITATIONS'"
                             :enrichedShoppingList="enrichedShoppingList"
                             @refresh-from-db="refreshFromDb"
                             @setError="error => $emit('setError', error)"

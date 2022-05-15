@@ -233,6 +233,18 @@ input.invalid:focus {
 }
 
 // Lists
+.row-name {
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.row-name > .col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
 .row-list {
     border-style: none none solid none;
     border-width: 1px;
@@ -269,6 +281,15 @@ input.invalid:focus {
   padding: 0;
 }
 
+.btn-refresh {
+  margin: auto;
+  padding: 0;
+}
+
+.btn-refresh > img {
+  margin: 0;
+  padding: 0;
+}
 
 
 // Shopping List

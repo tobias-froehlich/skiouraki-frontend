@@ -1,9 +1,9 @@
 <template>
     <div>
         <div v-if="show === 'OVERVIEW'" class="container p-0">
-            <div class="row row-list">
+            <div v-if="enrichedShoppingList.owner === userId" class="row row-list">
                 <div class="col">
-                    <button v-if="enrichedShoppingList.owner === userId" class="btn btn-primary btn-add" @click.stop="() => show = 'INVITE'"><img src="../assets/img/plus.svg"></button>
+                    <button class="btn btn-primary btn-add" @click.stop="() => show = 'INVITE'"><img src="../assets/img/plus.svg"></button>
                 </div>
             </div>
             <div v-if="enrichedShoppingList.invitedUsers.length === 0" class="row">

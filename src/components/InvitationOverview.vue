@@ -1,6 +1,16 @@
 <template>
     <div>
         <div v-if="shoppingLists" class="container">
+            <div class="row row-name">
+                <div class="col col-9">
+                    {{ $t('invitations') }}
+                </div>
+                <div class="col col-3">
+                    <button class="btn btn-primary btn-refresh"
+                            @click.stop="refreshFromDb"
+                    ><img src="../assets/img/refresh.svg"></button>
+                </div>
+            </div>
             <div class="row row-list">
                 <div class="col">
                 </div>
