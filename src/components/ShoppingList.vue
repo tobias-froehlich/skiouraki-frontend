@@ -2,6 +2,7 @@
     <div>
         <div class="container">
             <div class="row">
+
                 <ul class="nav nav-tabs">
                     <li class="nav-item" :data-active-tab="tab === 'ITEMS'">
                         <button class="btn" @click.stop="() => tab='ITEMS'">
