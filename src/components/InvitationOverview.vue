@@ -1,8 +1,13 @@
 <template>
     <div>
-        <div class="container">
+        <div v-if="shoppingLists" class="container">
             <div class="row row-list">
                 <div class="col">
+                </div>
+            </div>
+            <div v-if="shoppingLists.length === 0">
+                <div class="col">
+                    {{ $t('youDoNotHaveAnyInvitations') }}
                 </div>
             </div>
             <div class="row row-list" v-for="shoppingList of shoppingLists" :key="shoppingList.id">
@@ -37,7 +42,7 @@ export default {
   components: {},
   data() {
     return {
-      shoppingLists: [],
+      shoppingLists: null,
     }
   },
   validations: {

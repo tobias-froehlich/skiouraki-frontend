@@ -30,6 +30,10 @@ export default {
     members: 'Members',
     invitations: 'Invitations',
     leaveShoppingList: 'Quit shopping list',
+    theShoppingListIsEmpty: 'The shopping list is empty.',
+    noUsersAreInvitedToTheShoppingList: 'No users are invited to the shopping list.',
+    youDoNotHaveAnyShoppingLists: 'You do not have any shopping lists.',
+    youDoNotHaveAnyInvitations: 'You do not have any invitations',
     error: {
       unexpectedError: 'Unexpected Error.',
       theUserNameAlreadyExists: 'The user name already exists.',
@@ -87,6 +91,10 @@ export default {
     members: 'Teilnehmer',
     invitations: 'Einladungen',
     leaveShoppingList: 'Aus Einkaufsliste austreten',
+    theShoppingListIsEmpty: 'Die Einkaufsliste ist leer.',
+    noUsersAreInvitedToTheShoppingList: 'Keine Personen sind zu der Einkaufsliste eingeladen.',
+    youDoNotHaveAnyShoppingLists: 'Du hast keine Einkaufslisten.',
+    youDoNotHaveAnyInvitations: 'Du hast keine Einladungen.',
     error: {
       unexpectedError: 'Unerwarteter Fehler.',
       theUserNameAlreadyExists: 'Der Benutzername existiert schon.',

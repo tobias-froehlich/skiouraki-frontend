@@ -6,6 +6,11 @@
                     <button class="btn btn-primary btn-add" @click.stop="showFormAddShoppingListItem = true"><img src="../assets/img/plus.svg"></button>
                 </div>
             </div>
+            <div v-if="enrichedShoppingList.items.length === 0" class="row">
+                <div class="col">
+                    {{ $t('theShoppingListIsEmpty') }}
+                </div>
+            </div>
             <div v-for="item of enrichedShoppingList.items" class="row row-list" :key="item.id">
                 <div class="col-9">
                     <button class="btn btn-shopping-list-item"

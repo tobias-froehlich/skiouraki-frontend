@@ -6,6 +6,11 @@
                     <button v-if="enrichedShoppingList.owner === userId" class="btn btn-primary btn-add" @click.stop="() => show = 'INVITE'"><img src="../assets/img/plus.svg"></button>
                 </div>
             </div>
+            <div v-if="enrichedShoppingList.invitedUsers.length === 0" class="row">
+                <div class="col">
+                    {{ $t('noUsersAreInvitedToTheShoppingList') }}
+                </div>
+            </div>
             <div class="row row-list" v-for="member of enrichedShoppingList.invitedUsers" :key="member.id">
                 <div class="col col-9 p-0">
                     <div class="user-field"><img src="../assets/img/squirrel_outline.svg">&nbsp;{{ member.name }}</div>

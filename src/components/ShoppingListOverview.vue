@@ -1,9 +1,14 @@
 <template>
     <div>
-        <div class="container">
+        <div v-if="shoppingLists" class="container">
             <div class="row row-list">
                 <div class="col">
                     <button class="btn btn-primary btn-add" @click.stop="gotoFormAddShoppingList"><img src="../assets/img/plus.svg"></button>
+                </div>
+            </div>
+            <div v-if="shoppingLists.length === 0" class="row">
+                <div class="col">
+                    {{ $t('youDoNotHaveAnyShoppingLists') }}
                 </div>
             </div>
             <div class="row row-list" v-for="shoppingList of shoppingLists" :key="shoppingList.id">
@@ -34,7 +39,7 @@ export default {
   data() {
     return {
       userId: userApi.getUserId(),
-      shoppingLists: [],
+      shoppingLists: null,
     }
   },
   validations: {
