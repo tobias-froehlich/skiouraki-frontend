@@ -1,9 +1,9 @@
 <template>
     <div>
-        <div class="container p-0">
+        <div v-if="show === 'OVERVIEW'" class="container p-0">
             <div class="row row-list">
                 <div class="col">
-                    <button v-if="enrichedShoppingList.owner === userId" class="btn btn-primary btn-add" @click.stop="gotoFormInviteForShoppingList"><img src="../assets/img/plus.svg"></button>
+                    <button v-if="enrichedShoppingList.owner === userId" class="btn btn-primary btn-add" @click.stop="() => show = 'INVITE'"><img src="../assets/img/plus.svg"></button>
                 </div>
             </div>
             <div class="row row-list" v-for="member of enrichedShoppingList.invitedUsers" :key="member.id">
@@ -15,7 +15,14 @@
                 </div>
             </div>
         </div>
-
+        <form-invite-for-shopping-list
+                v-else-if="show === 'INVITE'"
+                :shoppingListId="enrichedShoppingList.id"
+                @setInfo="info => $emit('setInfo', info)"
+                @setError="error => $emit('setError', error)"
+                @cancel="() => show='OVERVIEW'"
+        >
+        </form-invite-for-shopping-list>
     </div>
 </template>
 
@@ -23,6 +30,7 @@
 import useVuelidate from '@vuelidate/core'
 import userApi from '../apis/userApi.js'
 import shoppingListApi from '../apis/shoppingListApi.js'
+import FormInviteForShoppingList from './FormInviteForShoppingList.vue'
 
 export default {
   name: 'ShoppingListMembers',
@@ -31,7 +39,9 @@ export default {
       v$: useVuelidate(),
     }
   },
-  components: {},
+  components: {
+    FormInviteForShoppingList,
+  },
   props: {
     enrichedShoppingList: {
       type: Object,
@@ -40,15 +50,13 @@ export default {
   },
   data() {
     return {
-      userId: userApi.getUserId()
+      userId: userApi.getUserId(),
+      show: 'OVERVIEW',
     }
   },
   validations: {
   },
   methods: {
-    gotoFormInviteForShoppingList() {
-      this.$router.push({name: 'FormInviteForShoppingList', params: {shoppingListId: this.enrichedShoppingList.id}})
-    },
     withdrawInvitation(userId) {
       shoppingListApi.withdrawInvitation(this.enrichedShoppingList.id, userId)
         .then(() => this.$emit('refreshFromDb'))

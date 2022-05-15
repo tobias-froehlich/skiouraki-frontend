@@ -32,13 +32,13 @@
                             @setInfo="info => $emit('setInfo', info)"
                     ></shopping-list-items>
                     <shopping-list-members
-                            v-if="tab==='MEMBERS'"
+                            v-if="tab==='MEMBERS' && enrichedShoppingList"
                             :enrichedShoppingList="enrichedShoppingList"
                             @refresh-from-db="refreshFromDb"
                             @setError="error => $emit('setError', error)"
                     ></shopping-list-members>
                     <shopping-list-invitations
-                            v-if="tab==='INVITATIONS'"
+                            v-if="tab==='INVITATIONS' && enrichedShoppingList"
                             :enrichedShoppingList="enrichedShoppingList"
                             @refresh-from-db="refreshFromDb"
                             @setError="error => $emit('setError', error)"
