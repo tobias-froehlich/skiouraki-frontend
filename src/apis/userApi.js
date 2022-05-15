@@ -42,10 +42,7 @@ function getUser(id) {
 function getUserByName(name) {
   return superagent
     .get(url + 'user/get-by-name/' + name)
-    .then(result => {
-      alert(JSON.stringify(result))
-      return result.text
-     })
+    .then(result => result.text)
     .then(id => {
       alert(id)
       return superagent
