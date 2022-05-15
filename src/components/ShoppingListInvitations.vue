@@ -8,7 +8,7 @@
             </div>
             <div class="row row-list" v-for="member of enrichedShoppingList.invitedUsers" :key="member.id">
                 <div class="col col-9 p-0">
-                    <div class="user-field"><img src="../assets/img/squirrel.svg">&nbsp;{{ member.name }}</div>
+                    <div class="user-field"><img src="../assets/img/squirrel_outline.svg">&nbsp;{{ member.name }}</div>
                 </div>
                 <div class="col col-3">
                     <button v-if="(enrichedShoppingList.owner===userId)" class="btn btn-primary btn-remove" @click.stop="() => withdrawInvitation(member.id)"><img src="../assets/img/x.svg"></button>

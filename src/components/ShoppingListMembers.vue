@@ -3,7 +3,7 @@
         <div class="container p-0">
             <div class="row row-list" v-for="member of enrichedShoppingList.members" :key="member.id">
                 <div class="col col-9 p-0">
-                    <div class="user-field"><img src="../assets/img/squirrel.svg">&nbsp;{{ member.name }}</div>
+                    <div class="user-field"><img src="../assets/img/squirrel_outline.svg">&nbsp;{{ member.name }}</div>
                 </div>
                 <div class="col col-3">
                     <button v-if="(enrichedShoppingList.owner===userId) && (enrichedShoppingList.owner!==member.id)" class="btn btn-primary btn-remove" @click.stop="() => removeUser(member.id)"><img src="../assets/img/x.svg"></button>
