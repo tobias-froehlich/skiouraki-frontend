@@ -1,15 +1,19 @@
 <template>
   <div>
     <div class="container">
-      <div class="row">
-        <button class="btn btn-primary" @click.stop="gotoShoppingListOverview">
-          {{ $t('myShoppingLists') }}
-        </button>
+      <div style="" class="row">
+        <div class="col p-0">
+          <button class="btn btn-primary btn-fill-col" @click.stop="gotoShoppingListOverview">
+            {{ $t('myShoppingLists') }}
+          </button>
+        </div>
       </div>
       <div class="row">
-        <button class="btn btn-primary" @click.stop="gotoInvitations">
-          {{ $t('myInvitations') }}
-        </button>
+        <div class="col p-0">
+          <button class="btn btn-primary btn-fill-col" @click.stop="gotoInvitations">
+            {{ $t('myInvitations') }}
+          </button>
+        </div>
       </div>
     </div>
   </div>

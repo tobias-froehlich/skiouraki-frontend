@@ -114,6 +114,12 @@ rooter-link.btn {
   padding:0;
 }
 
+.btn-fill-col {
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
+
 // Inputs
 
 .form-control {
@@ -233,6 +239,8 @@ input.invalid:focus {
 }
 
 // Lists
+
+
 .row-name {
   margin-bottom: 5px;
   margin-top: 5px;
